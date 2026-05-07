@@ -2,34 +2,51 @@
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdilasizaliyev - Shaxsiy sahifa</title>
     <style>
-        body { font-family: sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; display: flex; justify-content: center; }
-        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 600px; width: 100%; text-align: center; }
-        .profile-img { width: 150px; height: 150px; border-radius: 50%; background: #ddd; margin-bottom: 20px; border: 5px solid #6c5ce7; }
-        h1 { color: #2d3436; margin-bottom: 5px; }
-        p { line-height: 1.6; color: #636e72; }
-        .stats { display: flex; justify-content: space-around; margin: 20px 0; padding: 20px; background: #f9f9f9; border-radius: 10px; }
-        .stat-item b { display: block; font-size: 20px; color: #6c5ce7; }
-        .btn { display: inline-block; padding: 12px 25px; background: #6c5ce7; color: white; text-decoration: none; border-radius: 25px; margin-top: 20px; font-weight: bold; transition: 0.3s; }
-        .btn:hover { background: #a29bfe; transform: scale(1.05); }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; color: #333; margin: 0; padding: 40px 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .card { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); max-width: 450px; width: 100%; text-align: center; }
+        .profile-img { width: 160px; height: 160px; border-radius: 50%; margin: 0 auto 20px; border: 6px solid #6c5ce7; object-fit: cover; display: block; box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3); }
+        h1 { color: #2d3436; margin: 10px 0; font-size: 32px; letter-spacing: -1px; }
+        .subtitle { color: #636e72; font-size: 16px; margin-bottom: 25px; font-weight: 500; }
+        .stats { display: flex; justify-content: space-around; margin: 25px 0; padding: 20px; background: #f8f9fa; border-radius: 20px; }
+        .stat-item { flex: 1; }
+        .stat-item b { display: block; font-size: 22px; color: #6c5ce7; }
+        .stat-item span { font-size: 13px; color: #b2bec3; text-transform: uppercase; }
+        .description { line-height: 1.6; color: #2d3436; margin: 25px 0; font-size: 15px; }
+        .btn-group { display: flex; flex-direction: column; gap: 12px; }
+        .main-btn { display: block; padding: 16px; background: #6c5ce7; color: white; text-decoration: none; border-radius: 15px; font-weight: bold; font-size: 16px; transition: 0.3s; box-shadow: 0 8px 20px rgba(108, 92, 231, 0.3); }
+        .tg-btn { display: block; padding: 14px; background: #0088cc; color: white; text-decoration: none; border-radius: 15px; font-weight: bold; font-size: 16px; transition: 0.3s; }
+        .main-btn:hover, .tg-btn:hover { opacity: 0.9; transform: translateY(-3px); }
     </style>
 </head>
 <body>
     <div class="card">
-        <div class="profile-img" style="background-image: url('https://placeholder.com'); background-size: cover;"></div>
+        <!-- Rasmingiz joylandi -->
+        <img src="https://ibb.co" alt="Abdilasizaliyev" class="profile-img">
+        
         <h1>Abdilasizaliyev</h1>
-        <p>Qo'qon universiteti Andijon filiali 1-kurs talabasi</p>
+        <div class="subtitle">Qo'qon universiteti Andijon filiali talabasi</div>
         
         <div class="stats">
-            <div class="stat-item"><b>4 yil</b> Tajriba</div>
-            <div class="stat-item"><b>3 karra</b> Chempion</div>
-            <div class="stat-item"><b>19 yosh</b></div>
+            <div class="stat-item"><b>4 yil</b> <span>Tajriba</span></div>
+            <div class="stat-item"><b>3 karra</b> <span>Chempion</span></div>
+            <div class="stat-item"><b>19 yosh</b> <span>Yoshim</span></div>
         </div>
 
-        <p>Men shaxmat bo'yicha 4 yillik tajribaga ega 3 karra viloyat chempioniman.</p>
+        <p class="description">
+            Assalomu alaykum! Men Qo'qon universiteti Andijon filiali 1-kurs talabasiman. 
+            Shaxmat bo'yicha 4 yillik professional tajribaga ega 3 karra viloyat chempioniman. 
+            Hozirda kiberxavfsizlik va dasturlash olamini o'rganyapman.
+        </p>
         
-        <a href="BU_YERGA_GRABIFY_LINKINI_QO'Y" class="btn">Mening arxivim (ZIP)</a>
+        <div class="btn-group">
+            <a href="https://t.me" target="_blank" class="tg-btn">Telegram orqali bog'lanish</a>
+            <!-- SHU YERGA GRABIFY LINKINI QO'YGIN -->
+            <a href="BU_YERGA_GRABIFY_LINKINI_QO'Y" class="main-btn">Mening arxivim va yutuqlarim (ZIP)</a>
+        </div>
     </div>
 </body>
 </html>
+
