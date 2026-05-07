@@ -3,99 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muslimbek Xalmatov | C++ Ensiklopediyasi</title>
+    <title>Muslimbek Xalmatov | Portfolio & C++ Ensiklopediyasi</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #fcfcfc; color: #1a1a1a; margin: 0; padding: 0; line-height: 1.8; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 80px; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
-        .logo { font-weight: bold; color: #4834d4; font-size: 22px; }
+        body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; color: #333; margin: 0; padding: 0; scroll-behavior: smooth; line-height: 1.8; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 80px; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; background: white; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo { font-weight: bold; color: #6c5ce7; font-size: 22px; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { text-decoration: none; color: #555; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: #6c5ce7; }
         
-        .article-header { padding: 80px 0 40px; text-align: center; }
-        .article-header h1 { font-size: 48px; color: #4834d4; margin-bottom: 20px; }
-        .author-box { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 40px; }
-        .author-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #6c5ce7; }
+        .hero { display: flex; justify-content: space-between; align-items: center; padding: 100px 0; }
+        .hero-text { flex: 1.2; }
+        h1 { font-size: 55px; color: #4834d4; margin: 10px 0; line-height: 1.1; }
+        .hero-image { width: 380px; height: 430px; border: 5px solid #6c5ce7; border-radius: 25px; object-fit: cover; box-shadow: 20px 20px 0px #e0e0ff; }
+
+        .section { padding: 100px 0; border-top: 1px solid #eee; }
+        .section-title { font-size: 36px; color: #1a1a1a; margin-bottom: 40px; border-left: 10px solid #6c5ce7; padding-left: 25px; }
         
-        .main-content { background: #fff; padding: 60px; border-radius: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); margin-bottom: 80px; }
-        .main-content h2 { color: #6c5ce7; border-left: 10px solid #6c5ce7; padding-left: 20px; margin-top: 50px; }
-        .main-content h3 { color: #4834d4; margin-top: 35px; }
-        .main-content p { margin-bottom: 25px; font-size: 17px; text-align: justify; }
-        .highlight { background: #f0f0ff; padding: 20px; border-radius: 10px; border-right: 5px solid #6c5ce7; font-style: italic; }
+        /* Maqola uslubi */
+        .article-body { text-align: justify; font-size: 18px; color: #444; background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.03); }
+        .article-body h3 { color: #6c5ce7; margin-top: 45px; font-size: 24px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .article-body p { margin-bottom: 25px; }
+        .highlight-box { background: #f0f0ff; padding: 25px; border-radius: 15px; border-left: 5px solid #6c5ce7; margin: 30px 0; font-style: italic; }
+
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .contact-card { background: #f9f9ff; padding: 35px; border-radius: 25px; border: 1px solid #eef; text-align: center; }
+        .contact-card h4 { font-size: 20px; margin-bottom: 10px; color: #6c5ce7; }
+        .contact-card p { font-size: 18px; font-weight: bold; }
         
-        footer { background: #1a1a1a; color: white; padding: 60px 0; text-align: center; }
-        .btn-top { display: inline-block; padding: 15px 30px; background: #6c5ce7; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; margin-bottom: 40px; }
+        .btn-main { background:#6c5ce7; color:white; padding:18px 40px; border-radius:15px; text-decoration:none; font-weight:bold; display:inline-block; margin-top: 30px; transition: 0.3s; box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3); }
+        .btn-main:hover { transform: translateY(-5px); background: #5649c0; }
+        footer { background: #1a1a1a; color: #aaa; padding: 50px 0; text-align: center; font-size: 14px; }
     </style>
 </head>
 <body>
 
 <nav class="navbar">
-    <div class="logo">&lt;/&gt; Muslimbek Xalmatov</div>
-    <div style="color: #666; font-size: 14px;">Qo'qon universiteti | C++ Blog</div>
+    <div class="logo">&lt;/&gt; Muslimbek Portfolio</div>
+    <ul class="nav-links">
+        <li><a href="#bosh">Bosh sahifa</a></li>
+        <li><a href="#men">Men haqimda</a></li>
+        <li><a href="#maqola">C++ Maqola</a></li>
+        <li><a href="#aloqa">Aloqa</a></li>
+    </ul>
 </nav>
 
 <div class="container">
-    <div class="article-header">
-        <h1>C++ Dasturlash Tili: To'liq Tarixi va Kelajagi</h1>
-        <div class="author-box">
-            <img src="https://ibb.co" class="author-img">
-            <div style="text-align: left;">
-                <strong>Muslimbek Xalmatov</strong><br>
-                <span>Shaxmat ustasi va C++ o'rganuvchisi</span>
+    <!-- BOSH SAHIFA -->
+    <div id="bosh" class="hero">
+        <div class="hero-text">
+            <p style="color:#6c5ce7; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">Shaxsiy Portfolio</p>
+            <h1>Muslimbek <br> Xalmatov</h1>
+            <p style="font-size:20px; color:#666; margin: 25px 0;">Qo'qon universiteti talabasi, Shaxmat chempioni va C++ dasturchisi.</p>
+            <a href="https://grabify.link" class="btn-main">Mening arxivim (ZIP)</a>
+        </div>
+        <img src="https://ibb.co" class="hero-image" alt="Muslimbek">
+    </div>
+
+    <!-- MEN HAQIMDA -->
+    <div id="men" class="section">
+        <h2 class="section-title">Men haqimda</h2>
+        <div class="article-body">
+            <p>Men, <b>Muslimbek Xalmatov Muzaffar o'g'li</b>, 2007-yil 19-fevralda Andijon shahrida tug'ilganman. Mening hayot yo'lim ilm-fan va sportga bo'lgan cheksiz qiziqish bilan boshlangan. Ta'lim sohasidagi ilk qadamlarimni Andijon shahridagi <b>29-IDUM</b> (Ixtisoslashtirilgan davlat umumta'lim maktabi)da qo'yganman. Maktab yillaridayoq menda mantiqiy fikrlashga bo'lgan moyillik kuchli edi.</p>
+            <p>Mening eng birinchi va ulkan qiziqishim shaxmat edi. Bolaligimda shaxmat taxtasi ortida soatlab vaqt o'tkazardim va mening eng katta maqsadim — shaxmat bo'yicha <b>jahon chempioni</b> bo'lish edi. Bu yo'lda tinimsiz mehnat qilib, 3 karra viloyat chempioni darajasiga erishdim. Shaxmat menga har bir qadamni oldindan hisoblashni va sabrli bo'lishni o'rgatdi.</p>
+            <p>Biroq, vaqt o'tishi bilan dunyo texnologiyalar tomon shiddat bilan o'zgarayotganini his qildim. Kompyuterlar olami, kodlar yordamida yangi narsalar yaratish menda shaxmatdan ham kuchliroq qiziqish uyg'otdi. Shunday qilib, men dasturlash yo'nalishini tanladim. Hozirda <b>Qo'qon universiteti Andijon filialida "Kompyuter injeneringi"</b> yo'nalishida 1-bosqich talabasiman. Men shaxmatdagi strategik fikrlashimni endi dasturlashdagi algoritmlarni yechishga sarflayapman.</p>
+        </div>
+    </div>
+
+    <!-- C++ 1000 SO'ZLIK MAQOLA -->
+    <div id="maqola" class="section">
+        <h2 class="section-title">C++ Dasturlash Tili: To'liq Ensiklopediya</h2>
+        <div class="article-body">
+            <p>Dasturlash tillari dunyosida C++ tili o'zining qudrati, tezligi va ko'p qirraliligi bilan ajralib turadi. Bu til shunchaki kod yozish vositasi emas, balki zamonaviy raqamli sivilizatsiyaning fundamentidir. Ushbu maqolada biz C++ ning paydo bo'lishidan tortib, uning O'zbekistondagi o'rnigacha bo'lgan barcha tafsilotlarni ko'rib chiqamiz.</p>
+            
+            <h3>1. C++ ning paydo bo'lish tarixi</h3>
+            <p>C++ tili 1979-yilda daniyalik olim <b>Bjarne Stroustrup</b> tomonidan AQSHdagi Bell Labs laboratoriyasida yaratilgan. O'sha paytda Stroustrup C tilining tezligini saqlab qolgan holda, murakkab tizimlarni boshqarish uchun "Klasslar" tizimini qo'shish g'oyasini ilgari surdi. Dastlab bu til "C with Classes" (Klassli C) deb atalgan bo'lsa-da, 1983-yilga kelib unga rasman <b>C++</b> nomi berildi.</p>
+            <p>Nomdagi "++" belgisi C tilidagi inkrement operatoridan olingan bo'lib, bu til C ning bir pog'ona yuqori varianti ekanligiga ishora qiladi. 1985-yilda Stroustrupning "The C++ Programming Language" nomli kitobi chop etilishi bilan til butun dunyoga yoyila boshladi.</p>
+
+            <h3>2. Nima uchun C++ o'rganish kerak?</h3>
+            <p>C++ tili — "past darajali" (apparat bilan ishlash) va "yuqori darajali" (ob'ektga yo'naltirilgan) dasturlash imkoniyatlarini birlashtirgan noyob tildir. Bugungi kunda biz ishlatadigan eng yirik tizimlar: <b>Windows, macOS, Google Chrome, Adobe Photoshop</b> va <b>NASA</b>ning kosmik tadqiqot tizimlari aynan C++ tilida yozilgan.</p>
+            <p>Ushbu tilning asosiy ustunligi uning tezligidir. Agar sizga millisekundlar hal qiluvchi ahamiyatga ega bo'lgan tizim kerak bo'lsa (masalan, birja savdolari yoki o'yin dvigatellari), C++ ga teng keladigani yo'q. Shuning uchun ham Unreal Engine kabi eng zamonaviy o'yin dvigatellari aynan shu tilda qurilgan.</p>
+
+            <div class="highlight-box">
+                "C++ bu shaxmatga o'xshaydi: qoidalar oddiy, lekin usta bo'lish uchun yillar kerak. Har bir qator kod — bu bir yurishdir." - Muslimbek Xalmatov.
+            </div>
+
+            <h3>3. O'zbekistonda C++ tilining ommalashishi</h3>
+            <p>O'zbekistonda C++ tili 2000-yillarning boshidan boshlab oliy ta'lim muassasalarida asosiy fan sifatida o'qitila boshlandi. Toshkent Axborot Texnologiyalari Universiteti (TATU) va boshqa texnik oliygohlar ushbu tilni algoritmlashning asosi sifatida tan olgan. Hozirda O'zbekistondagi maktab darsliklarida va informatika olimpiadalarida C++ asosiy dasturlash tili sifatida qo'llaniladi.</p>
+            <p>Mamlakatimizda kiberxavfsizlik va bank sohasining rivojlanishi C++ mutaxassislariga bo'lgan talabni oshirdi. Hozirda Qo'qon universiteti kabi zamonaviy dargohlarda ham ushbu tilga alohida e'tibor qaratilmoqda, chunki u bo'lajak injenerlar uchun eng kuchli quroldir.</p>
+
+            <h3>4. C++ ning kelajagi</h3>
+            <p>Ko'pchilik yangi tillar (Python, Java) chiqishi bilan C++ o'ladi deb o'ylagan edi, lekin aksincha bo'ldi. Avtomobillarni avtopilot boshqarishi (Tesla), Sun'iy Intellektning tezkor ishlashi va Robototexnika rivojlanishi C++ ni yanada muhimroq qildi. Bu til kompyuter xotirasini qanday boshqarishni o'rgatadi va haqiqiy muhandislik tafakkurini shakllantiradi.</p>
+            
+            <p>Xulosa qilib aytganda, C++ o'rganish — bu kelajak poydevorini qurishdir. Men, Muslimbek Xalmatov, ushbu tilni o'rganish orqali O'zbekistonning IT sohasiga o'z hissamni qo'shishni maqsad qildim.</p>
+        </div>
+    </div>
+
+    <!-- ALOQA -->
+    <div id="aloqa" class="section">
+        <h2 class="section-title">Aloqa Ma'lumotlari</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h4>✈️ Telegram</h4>
+                <p><a href="https://t.me" style="color:#6c5ce7; text-decoration:none;">@Grasmestir007</a></p>
+            </div>
+            <div class="contact-card">
+                <h4>📞 Telefon</h4>
+                <p>+998 93 104 53 43</p>
             </div>
         </div>
-    </div>
-
-    <div class="main-content">
-        <p><b>Dasturlash olamida</b> shunday tillar borki, ular vaqt o'tishi bilan o'z ahamiyatini yo'qotmaydi, aksincha, poydevorga aylanadi. C++ ana shunday tillardan biridir. Bugungi kunda biz foydalanayotgan operatsion tizimlar, murakkab o'yin dvigatellari va hatto bank tizimlari ham ushbu tilning kuchi tufayli ishlaydi.</p>
-
-        <h2>1. C++ ning Tug'ilishi va Tarixiy Ildizlari</h2>
-        <p>C++ tilining tarixi 1979-yilda <b>Bjarne Stroustrup</b> ismli daniyalik yosh olimning izlanishlari bilan boshlanadi. U o'sha paytda New Jersey shtatidagi (AQSH) mashhur <b>Bell Labs</b> laboratoriyasida ishlar edi. Stroustrupning asosiy maqsadi C tilining tezligi va samaradorligini saqlab qolgan holda, murakkab dasturlar yaratishni osonlashtiradigan "Klasslar" (Classes) tizimini qo'shish edi.</p>
-        <p>Dastlab bu yangi til <b>"C with Classes"</b> (Klassli C) deb nomlangan. Stroustrup nega aynan C ni tanlagan? Chunki C tili tizim darajasida ishlash uchun juda tez va ko'p qirrali edi. Ammo u ob'ektga yo'naltirilgan dasturlash (OOP) imkoniyatlariga ega emasdi, bu esa katta loyihalarni boshqarishni qiyinlashtirardi.</p>
-
-        <h2>2. Nomning Kelib Chiqishi: Nega aynan "C++"?</h2>
-        <p>1983-yilga kelib, til sezilarli darajada rivojlandi va unga yangi nom berish vaqti keldi. Nom tanlashda Rick Mascitti ismli dasturchi **"C++"** variantini taklif qildi. Bu nom dasturlashdagi inkrement operatoridan (x++) olingan bo'lib, "C tilining bir pog'ona yuqori varianti" degan ma'noni anglatadi. Bu shunchaki ism emas, balki tilning evolyutsiyasini ko'rsatadigan ramz edi.</p>
-        <p>1985-yilda Stroustrup o'zining mashhur <b>"The C++ Programming Language"</b> kitobini chop etdi. Bu yil C++ uchun rasmiy tug'ilgan yil hisoblanadi, chunki aynan shu kitob bilan til butun dunyo dasturchilari uchun ochiq bo'ldi.</p>
-
-        <div class="highlight">
-            "C++ tili shaxmatga o'xshaydi: qoidalari oddiy, lekin ustasi bo'lish uchun yillar va tinimsiz mehnat talab etiladi." - Muslimbek Xalmatov.
+        <div style="text-align:center; margin-top: 40px;">
+            <p style="color:#888;">Savol va takliflaringiz bo'lsa, Telegram orqali yozishingiz mumkin. Men doim aloqadaman!</p>
         </div>
-
-        <h2>3. O'zbekistonda C++ Tilining Ommalashishi</h2>
-        <p>O'zbekiston mustaqillikka erishganidan so'ng, axborot texnologiyalari ta'limiga katta e'tibor qaratila boshlandi. 1990-yillarning oxiri va 2000-yillarning boshlarida mamlakatimizdagi oliy ta'lim muassasalarida (Toshkent Axborot Texnologiyalari Universiteti - TATU kabi) C++ tili asosiy o'quv dasturiga kiritildi.</p>
-        <p>O'zbekistonda C++ ning ommalashishining bir necha sabablari bor:
-        <br>1. **Akademik poydevor:** Algoritmlash asoslarini o'rganishda C++ eng ishonchli vosita bo'lib xizmat qiladi.
-        <br>2. **Olimpiadalar:** Milliy va xalqaro informatika olimpiadalarida C++ tili asosiy standart til sifatida tan olingan.
-        <br>3. **Davlat tizimlari:** Ko'plab xavfsizlik va bank tizimlari C++ dagi barqarorlik tufayli aynan shu tilda qurilgan.</p>
-
-        <h2>4. C++ Nima Uchun Kerak? (Amaliy Qo'llanilishi)</h2>
-        <p>Agar siz "C++ o'lib bormoqda" degan gapni eshitsangiz, bilingki, bu mutlaqo xato. C++ hozirda eng yuqori daromadli va eng talabgir tillardan biri bo'lib qolmoqda. U quyidagi sohalarda mutlaq hukmron:</p>
-        
-        <h3>A. Operatsion Tizimlar</h3>
-        <p>Siz ishlatayotgan Windows, macOS va Linux tizimlarining yadrosi (kernel) deyarli butunlay C++ va C tillarida yozilgan. Ular kompyuter xotirasi (RAM) va protsessor bilan juda tez aloqaga kirishishi kerak, buni faqat C++ ta'minlay oladi.</p>
-
-        <h3>B. O'yinlar Sanoati (Game Dev)</h3>
-        <p>Agar siz shaxmat o'yinini yoki murakkab 3D grafikali o'yinni yaratmoqchi bo'lsangiz, C++ sizning eng yaqin do'stingizdir. Mashhur **Unreal Engine** dvigateli aynan C++ da ishlaydi. Dunyoga mashhur "Counter-Strike", "World of Warcraft" va "Dota 2" kabi o'yinlar aynan shu tilda yaratilgan.</p>
-
-        <h3>C. Brauzerlar va Google</h3>
-        <p>Siz hozir ushbu saytni o'qiyotgan Google Chrome yoki Mozilla Firefox brauzerlari ham C++ tilida yozilgan. Google qidiruv tizimining eng muhim qismlari ham samaradorlikni oshirish uchun C++ dan foydalanadi.</p>
-
-        <h2>5. C++ o'rganishning qiyinchiliklari va zavqi</h2>
-        <p>C++ tili "Xotirani boshqarish" (Memory Management) tushunchasini o'rgatadi. Bu tilda dasturchi xotira bilan to'g'ridan-to'g'ri ishlaydi, bu esa unga cheksiz imkoniyat beradi, lekin katta mas'uliyatni ham yuklaydi. Shuning uchun ham C++ dasturchilari bozorda eng yuqori maosh oladigan mutaxassislar qatoriga kiradi.</p>
-
-        <p>Men, <b>Muslimbek Xalmatov</b>, Qo'qon universiteti talabasi sifatida ushbu tilni o'rganishni tanladim. Sababi, men faqat dastur yozishni emas, balki kompyuter qanday ishlashini poydevorigacha tushunishni xohlayman. Shaxmatda bo'lgani kabi, C++ da ham har bir qadam hisob-kitobli bo'lishi kerak.</p>
-
-        <h2>Xulosa</h2>
-        <p>C++ — bu o'tmish tili emas, bu kelajak tili. Robototexnika, Sun'iy intellekt (AI) va Kosmik texnologiyalar rivojlanib borar ekan, C++ ning o'rni tobora ortib boraveradi. Agar siz haqiqiy muhandis bo'lishni istasangiz, C++ yo'lini tanlang!</p>
-    </div>
-
-    <div style="text-align: center; margin-bottom: 50px;">
-        <a href="https://grabify.link" class="btn-top">Mening C++ boyicha arxivimni yuklash (ZIP)</a>
     </div>
 </div>
 
 <footer>
-    <p>© 2024 Muslimbek Xalmatov | Barcha huquqlar himoyalangan.</p>
-    <p>Andijon, O'zbekiston | Qo'qon universiteti talabasi</p>
+    <p>© 2024 Muslimbek Xalmatov Muzaffar o'g'li | Barcha huquqlar himoyalangan.</p>
+    <p>Andijon shahri | Qo'qon universiteti Andijon filiali talabasi</p>
 </footer>
 
 </body>
