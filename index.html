@@ -4,56 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muslimbek Xalmatov | Portfolio</title>
+    <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        :root { --main-color: #6c5ce7; --bg-color: #f0f2f5; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); margin: 0; padding: 20px; color: #2d3436; }
-        .container { max-width: 600px; margin: 0 auto; background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .header { background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%); padding: 40px 20px; text-align: center; color: white; }
-        .profile-img { width: 140px; height: 140px; border-radius: 50%; border: 5px solid rgba(255,255,255,0.3); margin-bottom: 15px; object-fit: cover; }
-        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 25px; background: #fff; text-align: center; }
-        .stat-card { padding: 15px; border-radius: 15px; background: #f8f9fa; }
-        .stat-card b { display: block; font-size: 22px; color: var(--main-color); }
-        .content { padding: 30px; }
-        .section-title { font-size: 20px; font-weight: bold; margin-bottom: 15px; border-left: 5px solid var(--main-color); padding-left: 10px; }
-        .award { background: #f1f2f6; padding: 15px; border-radius: 12px; margin-bottom: 10px; font-size: 14px; }
-        .btn-group { padding: 20px; display: grid; gap: 10px; }
-        .btn { padding: 15px; border-radius: 15px; text-decoration: none; font-weight: bold; text-align: center; transition: 0.3s; }
-        .btn-primary { background: var(--main-color); color: white; box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3); }
-        .btn-outline { border: 2px solid var(--main-color); color: var(--main-color); }
-        .btn:hover { transform: translateY(-3px); opacity: 0.9; }
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #333; margin: 0; padding: 0; scroll-behavior: smooth; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 80px; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 80px; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; background: white; z-index: 1000; }
+        .logo { font-weight: bold; color: #6c5ce7; font-size: 20px; }
+        .nav-links { display: flex; gap: 25px; list-style: none; font-size: 14px; color: #666; }
+        .nav-links a { text-decoration: none; color: inherit; transition: 0.3s; }
+        .nav-links a:hover { color: #6c5ce7; }
+        
+        /* Hero Section */
+        .hero { display: flex; justify-content: space-between; align-items: center; padding: 80px 0; }
+        .hero-text { flex: 1; }
+        h1 { font-size: 56px; color: #4834d4; margin: 10px 0; line-height: 1.1; }
+        .bio { font-size: 18px; color: #666; margin: 25px 0; max-width: 500px; }
+        .hero-image { width: 400px; height: 450px; border: 4px solid #6c5ce7; border-radius: 20px; object-fit: cover; box-shadow: 15px 15px 0px #e0e0ff; }
+        
+        /* Stats */
+        .stats { display: flex; gap: 20px; margin-top: 40px; }
+        .stat-card { border: 1px solid #f0f0f0; padding: 25px; border-radius: 15px; width: 140px; }
+        .stat-card h2 { font-size: 30px; color: #4834d4; margin: 0; }
+        .stat-card p { font-size: 13px; color: #888; margin: 5px 0 0; }
+
+        /* Maqolalar */
+        .articles-section { padding: 80px 0; background: #fff; border-top: 1px solid #f0f0f0; }
+        .section-title { font-size: 32px; color: #1a1a1a; margin-bottom: 40px; border-bottom: 3px solid #6c5ce7; display: inline-block; }
+        .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .article-card { border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .article-img { width: 100%; height: 200px; object-fit: cover; }
+        .article-content { padding: 20px; }
+
+        /* Aloqa */
+        .contact-section { padding: 80px 0; border-top: 1px solid #f0f0f0; }
+        .contact-container { display: grid; grid-template-columns: 1fr 2fr; gap: 50px; }
+        .contact-info div { margin-bottom: 30px; }
+        .contact-info h4 { margin: 0; color: #1a1a1a; font-size: 18px; }
+        .contact-info p { margin: 8px 0 0; color: #666; font-size: 15px; }
+
+        /* Footer */
+        footer { background-color: #fcfcfc; padding: 60px 80px; border-top: 1px solid #eee; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+        footer h3 { font-size: 18px; color: #1a1a1a; margin-bottom: 20px; }
+        .btn-footer { display: inline-block; padding: 10px 20px; border: 1px solid #6c5ce7; color: #6c5ce7; border-radius: 8px; text-decoration: none; font-size: 14px; margin-top: 15px; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <img src="https://w3schools.com" class="profile-img" alt="Muslimbek">
-            <h1>Muslimbek Xalmatov</h1>
-            <p>Qo'qon universiteti Andijon filiali talabasi</p>
-        </div>
 
-        <div class="stats-grid">
-            <div class="stat-card"><b>4 yil</b> <span>Tajriba</span></div>
-            <div class="stat-card"><b>3 karra</b> <span>Chempion</span></div>
-            <div class="stat-card"><b>19 yosh</b> <span>Yoshim</span></div>
-        </div>
+<nav class="navbar">
+    <div class="logo">&lt;/&gt; Muslimbek Xalmatov</div>
+    <ul class="nav-links">
+        <li><a href="#">Bosh sahifa</a></li>
+        <li><a href="#">Maqolalar</a></li>
+        <li><a href="#aloqa">Aloqa</a></li>
+    </ul>
+</nav>
 
-        <div class="content">
-            <div class="section-title">Men haqimda</div>
-            <p>Assalomu alaykum! Men professional shaxmatchi va bo'lajak IT mutaxassisiman. Viloyat miqyosidagi musobaqalarda yuqori o'rinlarni egallab kelmoqdaman.</p>
+<div class="container">
+    <div class="hero">
+        <div class="hero-text">
+            <p style="color:#888">Assalomu alaykum, shaxsiy veb sahifamga xush kelibsiz!</p>
+            <h1>Muslimbek <br> Xalmatov</h1>
+            <p class="bio">Qo'qon universiteti talabasi. Shaxmat bo'yicha 4 yillik tajribaga ega 3 karra viloyat chempioni.</p>
             
-            <div class="section-title">Mukofotlar</div>
-            <div class="award">🏆 Viloyat Shaxmat Chempionati - 1-o'rin (2022)</div>
-            <div class="award">🥇 Universitet Ittifoqi Stipendiyasi sohibi</div>
-            <div class="award">🎖 IT-Academy Sertifikati (Dasturlash)</div>
+            <a href="https://grabify.link" style="background:#6c5ce7; color:white; padding:18px 35px; border-radius:12px; text-decoration:none; font-weight:bold; display:inline-block; box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);">Mening arxivim (ZIP)</a>
+            
+            <div class="stats">
+                <div class="stat-card"><h2>4+</h2><p>Yil tajriba</p></div>
+                <div class="stat-card"><h2>3x</h2><p>Chempion</p></div>
+                <div class="stat-card"><h2>19+</h2><p>Yoshim</p></div>
+            </div>
         </div>
+        <img src="https://ibb.co" class="hero-image" alt="Muslimbek">
+    </div>
 
-        <div class="btn-group">
-            <a href="https://t.me" class="btn btn-outline">Bog'lanish</a>
-            <a href="https://grabify.link" class="btn btn-primary">Mening arxivimni ko'rish (ZIP)</a>
+    <div class="articles-section">
+        <h2 class="section-title">Maqolalar</h2>
+        <div class="articles-grid">
+            <div class="article-card">
+                <img src="https://unsplash.com" class="article-img">
+                <div class="article-content"><h3>Video karta (GPU)</h3><p>Grafik protsessorlar haqida tushuncha...</p></div>
+            </div>
+            <div class="article-card">
+                <img src="https://unsplash.com" class="article-img">
+                <div class="article-content"><h3>Doimiy xotira (ROM)</h3><p>Xotira qurilmalari ishlash tartibi...</p></div>
+            </div>
+            <div class="article-card">
+                <img src="https://unsplash.com" class="article-img">
+                <div class="article-content"><h3>Tezkor xotira (RAM)</h3><p>RAM qurilmalari haqida umumiy tushuncha...</p></div>
+            </div>
         </div>
     </div>
+
+    <div id="aloqa" class="contact-section">
+        <h2 class="section-title">Aloqa</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div><h4>Email</h4><p>muslimbek.xalmatov@gmail.com</p></div>
+                <div><h4>Telefon</h4><p>+998 93 104 53 43</p></div>
+                <div><h4>Manzil</h4><p>Andijon, O'zbekiston</p></div>
+                <div><h4>Telegram</h4><p>@Grasmestir007</p></div>
+            </div>
+            <div style="background: #fafafa; padding: 30px; border-radius: 20px; border: 1px solid #eee; text-align: center;">
+                <p style="color: #666;">Xabar yuborish tizimi ertaga faollashadi.</p>
+                <a href="https://t.me" style="color: #6c5ce7; font-weight: bold; text-decoration: none;">Hozircha Telegram orqali yozing ➔</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div><h3>&lt;/&gt; HAMKORLIK QILAMIZ!</h3><p>Professional ta'lim bo'yicha hamkorlik qilamiz.</p></div>
+    <div><h3>Sahifalar</h3><ul><li>Bosh sahifa</li><li>Maqolalar</li></ul></div>
+    <div><h3>Aloqa</h3><p>📧 muslimbek@gmail.com</p><p>📞 +998 93 104 53 43</p></div>
+    <div><h3>Sertifikat</h3><a href="#" class="btn-footer">🔵 Tekshirish</a></div>
+</footer>
+
 </body>
 </html>
-
-
-
