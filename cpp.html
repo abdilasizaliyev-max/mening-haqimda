@@ -1,57 +1,255 @@
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++ Kursi | Muslimbek</title>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; line-height: 1.6; }
-        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .btn-back { display: inline-block; margin-bottom: 20px; text-decoration: none; color: #6c5ce7; font-weight: bold; border: 2px solid #6c5ce7; padding: 10px 20px; border-radius: 12px; transition: 0.3s; }
-        .btn-back:hover { background: #6c5ce7; color: white; }
-        .lesson-list { display: grid; gap: 10px; margin-top: 20px; }
-        .lesson-item { background: #f9f9ff; padding: 15px 25px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: #333; border: 1px solid #eee; transition: 0.3s; }
-        .lesson-item:hover { transform: translateX(10px); border-color: #6c5ce7; background: #fff; }
-        .lesson-number { font-weight: bold; color: #6c5ce7; margin-right: 15px; }
-        .play-tag { font-size: 12px; background: #e0e0ff; color: #6c5ce7; padding: 4px 10px; border-radius: 8px; font-weight: bold; }
-    </style>
-</head>
-<body>
+<div class="section-title">C++ Dasturlash Kursi (25 Bosqich)</div>
+<div class="lesson-grid">
+    <!-- Boshlang'ich (Basic) - Green -->
+    <div class="lesson-item">
+        <div class="lesson-num">01</div>
+        <div class="lesson-icon">🚀</div>
+        <div class="lesson-info">
+            <div class="lesson-title">C++ Kirish</div>
+            <div class="lesson-desc">Tilning tarixi va IDE o'rnatish</div>
+        </div>
+        <span class="lesson-tag">Basic</span>
+    </div>
 
-<div class="container">
-    <a href="index.html" class="btn-back">← Bosh sahifaga qaytish</a>
-    <h1>C++: 0 dan 25-mavzugacha</h1>
-    <p>C++ dasturlash tili bo'yicha darslar. Mavzuni tanlang va YouTube'da ko'ring:</p>
+    <div class="lesson-item">
+        <div class="lesson-num">02</div>
+        <div class="lesson-icon">📦</div>
+        <div class="lesson-info">
+            <div class="lesson-title">O'zgaruvchilar va Ma'lumot turlari</div>
+            <div class="lesson-desc">int, double, char, string, bool</div>
+        </div>
+        <span class="lesson-tag">Basic</span>
+    </div>
 
-    <div class="lesson-list">
-        <script>
-            const cppDarslar = [
-                "C++ Kirish va Dev-C++ o'rnatish", "Hello World - Birinchi dastur", "O'zgaruvchilar va Ma'lumot turlari",
-                "Cin va Cout (Kiritish-chiqarish)", "Arifmetik amallar", "Mantiqiy operatorlar",
-                "If, Else, Else if shartlari", "Switch Case operatori", "While tsikli", "For tsikli",
-                "Do While tsikli", "Break va Continue", "Massivlar (Arrays) asoslari",
-                "Ko'p o'lchamli massivlar", "String (Matn) bilan ishlash", "Pointerlar (Ko'rsatkichlar)",
-                "Funksiyalar asoslari", "Funksiya parametrlari", "Rekursiya (Recursion)",
-                "Strukturalar (Struct)", "Enum (Sanab o'tiladigan turlar)", "Fayllar bilan ishlash",
-                "OOP: Klass va Obyektlar", "OOP: Merosxo'rlik (Inheritance)", "Loyiha: Kalkulyator yaratish"
-            ];
+    <div class="lesson-item">
+        <div class="lesson-num">03</div>
+        <div class="lesson-icon">⌨️</div>
+        <div class="lesson-info">
+            <div class="lesson-title">Kirish va Chiqish</div>
+            <div class="lesson-desc">cin, cout va formatlash</div>
+        </div>
+        <span class="lesson-tag">Basic</span>
+    </div>
 
-            cppDarslar.forEach((nomi, i) => {
-                let qidiruv = nomi.split(' ').join('+');
-                let link = "https://youtube.com+" + qidiruv;
-                
-                document.write(`
-                    <a href="${link}" target="_blank" class="lesson-item">
-                        <span><span class="lesson-number">${(i + 1)}.</span> ${nomi}</span>
-                        <span class="play-tag">KO'RISH ▶</span>
-                    </a>
-                `);
-            });
-        </script>
+    <div class="lesson-item">
+        <div class="lesson-num">04</div>
+        <div class="lesson-icon">⚖️</div>
+        <div class="lesson-info">
+            <div class="lesson-title">Operatorlar</div>
+            <div class="lesson-desc">Arifmetik, mantiqiy va taqqoslash</div>
+        </div>
+        <span class="lesson-tag">Basic</span>
+    </div>
+
+    <div class="lesson-item">
+        <div class="lesson-num">05</div>
+        <div class="lesson-icon">🌿</div>
+        <div class="lesson-info">
+            <div class="lesson-title">Shartli operatorlar</div>
+            <div class="lesson-desc">if, else if, else tushunchasi</div>
+        </div>
+        <span class="lesson-tag">Basic</span>
+    </div>
+
+    <div class="lesson-item">
+        <div class="lesson-num">06</div>
+        <div class="lesson-icon">🔀</div>
+        <div class="lesson-info">
+            <div class="lesson-title">Switch Case</div>
+            <div class="lesson-desc">Tanlov operatori va break</div>
+        </div>
+        <span class="lesson-tag">Basic</span>
+    </div>
+
+    <div class="lesson-item">
+        <div class="lesson-num">07</div>
+        <div class="lesson-icon">🔄</div>
+        <div class="lesson-info">
+            <div class="lesson-title">For sikli</div>
+            <div class="lesson-desc">Takrorlanuvchi jarayonlar</div>
+        </div>
+        <span class="lesson-tag">Basic</span>
+    </div>
+
+    <div class="lesson-item">
+        <div class="lesson-num">08</div>
+        <div class="lesson-icon">➰</div>
+        <div class="lesson-info">
+            <div class="lesson-title">While va Do-While</div>
+            <div class="lesson-desc">Shartli takrorlanishlar</div>
+        </div>
+        <span class="lesson-tag">Basic</span>
+    </div>
+
+    <!-- O'rta daraja (Intermediate) - Purple -->
+    <div class="lesson-item intermediate">
+        <div class="lesson-num">09</div>
+        <div class="lesson-icon">📊</div>
+        <div class="lesson-info">
+            <div class="lesson-title">Bir o'lchamli massivlar</div>
+            <div class="lesson-desc">Arraylar bilan ishlash asoslari</div>
+        </div>
+        <span class="lesson-tag">Mid</span>
+    </div>
+
+    <div class="lesson-item intermediate">
+        <div class="lesson-num">10</div>
+        <div class="lesson-icon">⏹️</div>
+        <div class="lesson-info">
+            <div class="lesson-title">Ko'p o'lchamli massivlar</div>
+            <div class="lesson-desc">Matritsalar va jadvallar</div>
+        </div>
+        <span class="lesson-tag">Mid</span>
+    </div>
+
+    <div class="lesson-item intermediate">
+        <div class="lesson-num">11</div>
+        <div class="lesson-icon">⚙️</div>
+        <div class="lesson-info">
+            <div class="lesson-title">Funksiyalar</div>
+            <div class="lesson-desc">Void va return qiymatli funksiyalar</div>
+        </div>
+        <span class="lesson-tag">Mid</span>
+    </div>
+
+    <div class="lesson-item intermediate">
+        <div class="lesson-num">12</div>
+        <div class="lesson-icon">🧬</div>
+        <div class="lesson-info">
+            <div class="lesson-title">Rekursiya</div>
+            <div class="lesson-desc">Funksiyaning o'zini chaqirishi</div>
+        </div>
+        <span class="lesson-tag">Mid</span>
+    </div>
+
+    <div class="lesson-item intermediate">
+        <div class="lesson-num">13</div>
+        <div class="lesson-icon">📍</div>
+        <div class="lesson-info">
+            <div class="lesson-title">Pointerlar (Ko'rsatkichlar)</div>
+            <div class="lesson-desc">Xotira manzillari bilan ishlash</div>
+        </div>
+        <span class="lesson-tag">Mid</span>
+    </div>
+
+    <div class="lesson-item intermediate">
+        <div class="lesson-num">14</div>
+        <div class="lesson-icon">🔗</div>
+        <div class="lesson-info">
+            <div class="lesson-title">Reference (Havolalar)</div>
+            <div class="lesson-desc">Pointerlar va Referencelar farqi</div>
+        </div>
+        <span class="lesson-tag">Mid</span>
+    </div>
+
+    <div class="lesson-item intermediate">
+        <div class="lesson-num">15</div>
+        <div class="lesson-icon">📁</div>
+        <div class="lesson-info">
+            <div class="lesson-title">Fayllar bilan ishlash</div>
+            <div class="lesson-desc">fstream: o'qish va yozish</div>
+        </div>
+        <span class="lesson-tag">Mid</span>
+    </div>
+
+    <div class="lesson-item intermediate">
+        <div class="lesson-num">16</div>
+        <div class="lesson-icon">🏗️</div>
+        <div class="lesson-info">
+            <div class="lesson-title">Struct (Strukturalar)</div>
+            <div class="lesson-desc">Ma'lumotlarni guruhlash</div>
+        </div>
+        <span class="lesson-tag">Mid</span>
+    </div>
+
+    <!-- Murakkab daraja (Advanced) - Orange -->
+    <div class="lesson-item advanced">
+        <div class="lesson-num">17</div>
+        <div class="lesson-icon">💎</div>
+        <div class="lesson-info">
+            <div class="lesson-title">OOP: Kirish</div>
+            <div class="lesson-desc">Class va Object tushunchasi</div>
+        </div>
+        <span class="lesson-tag">Hard</span>
+    </div>
+
+    <div class="lesson-item advanced">
+        <div class="lesson-num">18</div>
+        <div class="lesson-icon">🛡️</div>
+        <div class="lesson-info">
+            <div class="lesson-title">Encapsulation</div>
+            <div class="lesson-desc">Private va Public ruxsatlari</div>
+        </div>
+        <span class="lesson-tag">Hard</span>
+    </div>
+
+    <div class="lesson-item advanced">
+        <div class="lesson-num">19</div>
+        <div class="lesson-icon">🌳</div>
+        <div class="lesson-info">
+            <div class="lesson-title">Inheritance</div>
+            <div class="lesson-desc">Vorislilik tushunchasi</div>
+        </div>
+        <span class="lesson-tag">Hard</span>
+    </div>
+
+    <div class="lesson-item advanced">
+        <div class="lesson-num">20</div>
+        <div class="lesson-icon">🎭</div>
+        <div class="lesson-info">
+            <div class="lesson-title">Polymorphism</div>
+            <div class="lesson-desc">Virtual funksiyalar va override</div>
+        </div>
+        <span class="lesson-tag">Hard</span>
+    </div>
+
+    <div class="lesson-item advanced">
+        <div class="lesson-num">21</div>
+        <div class="lesson-icon">🧩</div>
+        <div class="lesson-info">
+            <div class="lesson-title">Abstraction</div>
+            <div class="lesson-desc">Abstrakt klasslar va interfeyslar</div>
+        </div>
+        <span class="lesson-tag">Hard</span>
+    </div>
+
+    <div class="lesson-item advanced">
+        <div class="lesson-num">22</div>
+        <div class="lesson-icon">📦</div>
+        <div class="lesson-info">
+            <div class="lesson-title">STL: Vector va List</div>
+            <div class="lesson-desc">Dinamik konteynerlar</div>
+        </div>
+        <span class="lesson-tag">Hard</span>
+    </div>
+
+    <div class="lesson-item advanced">
+        <div class="lesson-num">23</div>
+        <div class="lesson-icon">🔍</div>
+        <div class="lesson-info">
+            <div class="lesson-title">STL: Map va Set</div>
+            <div class="lesson-desc">Kalit-qiymat ma'lumotlar tuzilmasi</div>
+        </div>
+        <span class="lesson-tag">Hard</span>
+    </div>
+
+    <div class="lesson-item advanced">
+        <div class="lesson-num">24</div>
+        <div class="lesson-icon">⚠️</div>
+        <div class="lesson-info">
+            <div class="lesson-title">Exception Handling</div>
+            <div class="lesson-desc">Try, catch va xatolar bilan ishlash</div>
+        </div>
+        <span class="lesson-tag">Hard</span>
+    </div>
+
+    <div class="lesson-item advanced">
+        <div class="lesson-num">25</div>
+        <div class="lesson-icon">🎓</div>
+        <div class="lesson-info">
+            <div class="lesson-title">Final Loyiha</div>
+            <div class="lesson-desc">Kurs bo'yicha yakuniy imtihon</div>
+        </div>
+        <span class="lesson-tag">Hard</span>
     </div>
 </div>
-
-</body>
-</html>
-
