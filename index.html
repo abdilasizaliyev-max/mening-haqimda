@@ -13,13 +13,17 @@
         .nav-links { display: flex; gap: 25px; list-style: none; margin: 0; padding: 0; }
         .nav-links a { text-decoration: none; color: #555; font-weight: 600; transition: 0.3s; font-size: 15px; }
         .nav-links a:hover { color: #6c5ce7; }
+        .hero { display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 100px 0; text-align: center; }
+        h1 { font-size: 55px; color: #4834d4; margin: 10px 0; line-height: 1.1; }
         .section { padding: 80px 0; border-top: 1px solid #eee; }
         .section-title { font-size: 32px; color: #1a1a1a; margin-bottom: 40px; border-left: 8px solid #6c5ce7; padding-left: 20px; }
+        .article-body { text-align: justify; font-size: 17px; color: #444; background: #fff; padding: 35px; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.03); }
+        .article-body h3 { color: #6c5ce7; margin-top: 35px; font-size: 22px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+        .highlight-box { background: #f0f0ff; padding: 25px; border-radius: 15px; border-left: 5px solid #6c5ce7; margin: 30px 0; font-style: italic; }
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         .contact-card { background: #f9f9ff; padding: 30px; border-radius: 20px; border: 1px solid #eef; text-align: center; }
         .btn-main { background:#6c5ce7; color:white; padding:12px 25px; border-radius:12px; text-decoration:none; font-weight:bold; display:inline-block; margin-top: 15px; transition: 0.3s; }
-        .hero { display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 120px 0; text-align: center; }
-        h1 { font-size: 60px; color: #4834d4; margin: 10px 0; line-height: 1.1; }
+        footer { background: #1a1a1a; color: #aaa; padding: 40px 0; text-align: center; }
     </style>
 </head>
 <body>
@@ -28,7 +32,9 @@
     <a href="#bosh" class="logo">&lt;/&gt; Muslimbek Portfolio</a>
     <ul class="nav-links">
         <li><a href="#bosh">Bosh sahifa</a></li>
+        <li><a href="#men">Men haqimda</a></li>
         <li><a href="#darsliklar">Darsliklar</a></li>
+        <li><a href="#maqola">C++ Maqola</a></li>
         <li><a href="#aloqa">Aloqa</a></li>
     </ul>
 </nav>
@@ -37,33 +43,71 @@
     <div id="bosh" class="hero">
         <p style="color:#6c5ce7; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">Shaxsiy Portfolio</p>
         <h1>Muslimbek Xalmatov</h1>
-        <p style="font-size:20px; color:#666; margin: 20px 0;">Qo'qon universiteti Andijon filiali talabasi va dasturchi.</p>
+        <p style="font-size:20px; color:#666; margin: 20px 0;">Qo'qon universiteti Andijon filiali talabasi va 3 karra viloyat chempioni.</p>
         <a href="https://t.me" target="_blank" class="btn-main">Telegram orqali bog'lanish</a>
     </div>
 
-    <!-- DARSLIKLAR BO'LIMI -->
+    <!-- MEN HAQIMDA -->
+    <div id="men" class="section">
+        <h2 class="section-title">Men haqimda</h2>
+        <div class="article-body">
+            <p>Men, <b>Muslimbek Xalmatov Muzaffar o'g'li</b>, 2007-yil 19-fevralda Andijon shahrida tug'ilganman. Ta'lim yo'limni Andijon shahridagi 29-IDUMda boshlaganman. Bolaligimdan mantiqiy o'yinlarga qiziqishim yuqori bo'lgan.</p>
+            <p>Mening eng katta sport yutug'im — shaxmat bo'yicha <b>3 karra viloyat chempioni</b> unvonidir. Shaxmat menga sabr va strategik fikrlashni o'rgatdi. Hozirda ushbu bilimlarimni dasturlashda qo'llayapman. Men Qo'qon universitetining Andijon filialida "Kompyuter injeneringi" yo'nalishi 1-bosqich talabasiman.</p>
+        </div>
+    </div>
+
+    <!-- DARSLIKLAR -->
     <div id="darsliklar" class="section">
-        <h2 class="section-title">O'quv darsliklari</h2>
+        <h2 class="section-title">Darsliklar</h2>
         <div class="contact-grid">
             <div class="contact-card">
                 <h4>Python Darslari</h4>
-                <p>Pythonni 0 dan o'rganish (1-25 darslar).</p>
+                <p>Pythonni 0 dan 25-mavzugacha o'rganish.</p>
                 <a href="python.html" class="btn-main">Kursga kirish</a>
             </div>
             <div class="contact-card">
                 <h4>C++ Darslari</h4>
-                <p>C++ dasturlash tili (1-25 darslar).</p>
+                <p>C++ tili asoslari (1-25 darslar).</p>
                 <a href="cpp.html" class="btn-main">Kursga kirish</a>
             </div>
             <div class="contact-card">
                 <h4>Hisob fani</h4>
-                <p>Matematik hisob va ma'ruzalar.</p>
+                <p>Oliy matematikadan video ma'ruzalar.</p>
                 <a href="hisob.html" class="btn-main">Mavzularga kirish</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAQOLA -->
+    <div id="maqola" class="section">
+        <h2 class="section-title">C++ Dasturlash Tili Haqida</h2>
+        <div class="article-body">
+            <p>C++ tili 1979-yilda <b>Bjarne Stroustrup</b> tomonidan yaratilgan. U C tilining davomchisi bo'lib, ob'ektga yo'naltirilgan dasturlash imkoniyatini beradi.</p>
+            <h3>Nima uchun C++?</h3>
+            <p>Bu til operatsion tizimlar, zamonaviy o'yinlar (masalan, PUBG, CS:GO) va yuqori tezlik talab qilinadigan bank tizimlarida asosiy vositadir. 6 oylik tajribam davomida men ushbu tilning naqadar qudratli ekanligini his qildim.</p>
+            <div class="highlight-box">
+                "C++ bu shaxmatga o'xshaydi: qoidalar oddiy, lekin usta bo'lish uchun tinimsiz mehnat kerak."
+            </div>
+        </div>
+    </div>
+
+    <!-- ALOQA -->
+    <div id="aloqa" class="section">
+        <h2 class="section-title">Aloqa</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h4>✈ Telegram</h4>
+                <p><a href="https://t.me" target="_blank" style="color:#6c5ce7;">@Grasmestir007</a></p>
+            </div>
+            <div class="contact-card">
+                <h4>📞 Telefon</h4>
+                <p><a href="tel:+998931045343" style="color:#333;">+998 93 104 53 43</a></p>
             </div>
         </div>
     </div>
 </div>
 
+<footer><p>© 2024 Muslimbek Xalmatov</p></footer>
+
 </body>
 </html>
-
