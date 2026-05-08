@@ -1,554 +1,85 @@
-[5/8/2026 9:28 PM] Muslimbek: DOCTYPE html>
+<!DOCTYPE html>
 <html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Darslari | 0 dan boshlab</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #0a0a0f;
-            --surface: #12121a;
-            --card: #1a1a26;
-            --accent: #00ff88;
-            --accent2: #7c3aed;
-            --accent3: #ff6b35;
-            --text: #e8e8f0;
-            --muted: #6b6b80;
-            --border: #2a2a3a;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python 25 ta dars | Muslimbek</title>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
-        body {
-            font-family: 'Syne', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Animated background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(ellipse at 20% 20%, rgba(0,255,136,0.05) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(124,58,237,0.07) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(255,107,53,0.03) 0%, transparent 60%);
-            animation: bgPulse 8s ease-in-out infinite alternate;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        @keyframes bgPulse {
-            0% { transform: scale(1) rotate(0deg); }
-            100% { transform: scale(1.1) rotate(2deg); }
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Header */
-        .header {
-            text-align: center;
-            margin-bottom: 60px;
-            animation: fadeDown 0.8s ease;
-        }
-
-        @keyframes fadeDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .badge {
-            display: inline-block;
-            font-family: 'Space Mono', monospace;
-            font-size: 11px;
-            letter-spacing: 3px;
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            padding: 6px 16px;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            font-size: clamp(2rem, 6vw, 3.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 16px;
-        }
-
-        h1 .highlight {
-            color: var(--accent);
-            position: relative;
-        }
-
-        h1 .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-
-        .subtitle {
-            color: var(--muted);
-            font-size: 1.1rem;
-            font-weight: 400;
-        }
-
-        /* Stats row */
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 30px 0 50px;
-            flex-wrap: wrap;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-family: 'Space Mono', monospace;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--muted);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-[5/8/2026 9:28 PM] Muslimbek: /* Section titles */
-        .section-title {
-            font-family: 'Space Mono', monospace;
-            font-size: 11px;
-            letter-spacing: 4px;
-            color: var(--muted);
-            text-transform: uppercase;
-            margin: 40px 0 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
-
-        /* Lesson grid */
-        .lesson-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .lesson-item {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 18px 24px;
-            text-decoration: none;
-            color: var(--text);
-            transition: all 0.25s ease;
-            cursor: pointer;
-            animation: fadeIn 0.5s ease both;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .lesson-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: var(--accent);
-            transform: scaleY(0);
-            transition: transform 0.25s ease;
-            border-radius: 0 2px 2px 0;
-        }
-
-        .lesson-item:hover {
-            border-color: var(--accent);
-            background: #1e1e2e;
-            transform: translateX(6px);
-        }
-
-        .lesson-item:hover::before {
-            transform: scaleY(1);
-        }
-
-        .lesson-item.intermediate::before { background: var(--accent2); }
-        .lesson-item.intermediate:hover { border-color: var(--accent2); }
-
-        .lesson-item.advanced::before { background: var(--accent3); }
-        .lesson-item.advanced:hover { border-color: var(--accent3); }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        .lesson-num {
-            font-family: 'Space Mono', monospace;
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--accent);
-            min-width: 32px;
-        }
-
-        .lesson-item.intermediate .lesson-num { color: var(--accent2); }
-        .lesson-item.advanced .lesson-num { color: var(--accent3); }
-
-        .lesson-icon {
-            font-size: 1.4rem;
-            min-width: 36px;
-            text-align: center;
-        }
-
-        .lesson-info {
-            flex: 1;
-        }
-
-        .lesson-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 3px;
-        }
-
-        .lesson-desc {
-            font-size: 0.78rem;
-            color: var(--muted);
-            font-weight: 400;
-        }
-
-        .lesson-tag {
-            font-family: 'Space Mono', monospace;
-            font-size: 10px;
-            padding: 4px 10px;
-            border-radius: 20px;
-            background: rgba(0,255,136,0.1);
-            color: var(--accent);
-            border: 1px solid rgba(0,255,136,0.2);
-            white-space: nowrap;
-        }
-
-        .lesson-item.intermediate .lesson-tag {
-            background: rgba(124,58,237,0.1);
-            color: #a78bfa;
-            border-color: rgba(124,58,237,0.2);
-        }
-
-        .lesson-item.advanced .lesson-tag {
-            background: rgba(255,107,53,0.1);
-            color: var(--accent3);
-            border-color: rgba(255,107,53,0.2);
-        }
-
-        /* Modal */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-[5/8/2026 9:28 PM] Muslimbek: .modal-overlay.active {
-            display: flex;
-            animation: fadeInOverlay 0.3s ease;
-        }
-
-        @keyframes fadeInOverlay {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 36px;
-            max-width: 640px;
-            width: 100%;
-            position: relative;
-            animation: slideUp 0.3s ease;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 16px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: var(--muted);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: color 0.2s;
-            line-height: 1;
-        }
-
-        .modal-close:hover { color: var(--text); }
-
-        .modal-num {
-            font-family: 'Space Mono', monospace;
-            font-size: 12px;
-            color: var(--accent);
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        .modal-title {
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-
-        .modal-content {
-            color: var(--muted);
-            font-size: 0.95rem;
-            line-height: 1.8;
-            margin-bottom: 24px;
-        }
-
-        .code-block {
-            background: #0d0d14;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.85rem;
-            line-height: 1.7;
-            color: #e8e8f0;
-            margin: 16px 0;
-            overflow-x: auto;
-        }
-
-        .code-block .kw { color: #ff79c6; }
-        .code-block .fn { color: #50fa7b; }
-        .code-block .st { color: #f1fa8c; }
-        .code-block .cm { color: #6272a4; }
-        .code-block .nm { color: #bd93f9; }
-        .code-block .op { color: #ff6b35; }
-
-        .modal-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--accent);
-            color: #000;
-            font-family: 'Space Mono', monospace;
-            font-size: 13px;
-            font-weight: 700;
-            padding: 14px 28px;
-            border-radius: 10px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-decoration: none;
-        }
-
-        .modal-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,255,136,0.3);
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 1px solid var(--border);
-            color: var(--muted);
-            font-size: 0.85rem;
-        }
-
-        .footer span {
-            color: var(--accent);
-        }
-
-        /* Delay animations */
-        .lesson-item:nth-child(1) { animation-delay: 0.05s; }
-        .lesson-item:nth-child(2) { animation-delay: 0.1s; }
-        .lesson-item:nth-child(3) { animation-delay: 0.15s; }
-        .lesson-item:nth-child(4) { animation-delay: 0.2s; }
-        .lesson-item:nth-child(5) { animation-delay: 0.25s; }
-        .lesson-item:nth-child(6) { animation-delay: 0.3s; }
-        .lesson-item:nth-child(7) { animation-delay: 0.35s; }
-        .lesson-item:nth-child(8) { animation-delay: 0.4s; }
-        .lesson-item:nth-child(9) { animation-delay: 0.45s; }
-        .lesson-item:nth-child(10) { animation-delay: 0.5s; }
-
-        @media (max-width: 600px) {
-            .lesson-item { padding: 14px 16px; gap: 12px; }
-            .lesson-tag { display: none; }
-            .modal { padding: 24px; }
-        }
-    </style>
+<style>
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+}
+iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+.lesson-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+.lesson-number {
+    color: #6c5ce7;
+    font-weight: bold;
+}
+</style>
 </head>
 <body>
-[5/8/2026 9:28 PM] Muslimbek: <div class="container">
-    <!-- Header -->
-    <div class="header">
-        <div class="badge">⚡ To'liq kurs</div>
-        <h1>Python <span class="highlight">0 dan</span><br>boshlab</h1>
-        <p class="subtitle">25 ta mavzu — bosqichma-bosqich o'rganish</p>
 
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-number">25</div>
-                <div class="stat-label">Mavzu</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">3</div>
-                <div class="stat-label">Daraja</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">∞</div>
-                <div class="stat-label">Imkoniyat</div>
-            </div>
-        </div>
-    </div>
+<div class="container">
+<h1>🐍 Python 25 ta dars (To‘liq kurs)</h1>
 
-    <!-- Boshlang'ich -->
-    <div class="section-title">🟢 Boshlang'ich daraja</div>
-    <div class="lesson-grid" id="beginnerGrid"></div>
+<!-- VIDEO PLAYER -->
+<iframe src="https://www.youtube.com/embed/videoseries?list=PLw0uq1J9p2z9c1pJ7zK0s8AjtKoa6HgMH" allowfullscreen></iframe>
 
-    <!-- O'rta -->
-    <div class="section-title">🟣 O'rta daraja</div>
-    <div class="lesson-grid" id="intermediateGrid"></div>
+<h3>Darslar ro‘yxati:</h3>
 
-    <!-- Yuqori -->
-    <div class="section-title">🔴 Yuqori daraja</div>
-    <div class="lesson-grid" id="advancedGrid"></div>
+<div class="lesson-list">
 
-    <div class="footer">
-        Python kursi · <span>Muslimbek</span> tomonidan · 2024
-    </div>
+<div class="lesson-item"><span class="lesson-number">01.</span> Kirish va o‘rnatish</div>
+<div class="lesson-item"><span class="lesson-number">02.</span> O‘zgaruvchilar</div>
+<div class="lesson-item"><span class="lesson-number">03.</span> Ma’lumot turlari</div>
+<div class="lesson-item"><span class="lesson-number">04.</span> String</div>
+<div class="lesson-item"><span class="lesson-number">05.</span> List</div>
+<div class="lesson-item"><span class="lesson-number">06.</span> Input / Output</div>
+<div class="lesson-item"><span class="lesson-number">07.</span> Sonlar</div>
+<div class="lesson-item"><span class="lesson-number">08.</span> If / Else</div>
+<div class="lesson-item"><span class="lesson-number">09.</span> For loop</div>
+<div class="lesson-item"><span class="lesson-number">10.</span> While loop</div>
+
+<div class="lesson-item"><span class="lesson-number">11.</span> Funksiyalar</div>
+<div class="lesson-item"><span class="lesson-number">12.</span> Dictionary</div>
+<div class="lesson-item"><span class="lesson-number">13.</span> Tuple va Set</div>
+<div class="lesson-item"><span class="lesson-number">14.</span> Lambda</div>
+<div class="lesson-item"><span class="lesson-number">15.</span> OOP</div>
+<div class="lesson-item"><span class="lesson-number">16.</span> Inheritance</div>
+<div class="lesson-item"><span class="lesson-number">17.</span> Modullar</div>
+<div class="lesson-item"><span class="lesson-number">18.</span> Datetime</div>
+<div class="lesson-item"><span class="lesson-number">19.</span> Math</div>
+<div class="lesson-item"><span class="lesson-number">20.</span> JSON</div>
+
+<div class="lesson-item"><span class="lesson-number">21.</span> RegEx</div>
+<div class="lesson-item"><span class="lesson-number">22.</span> PIP</div>
+<div class="lesson-item"><span class="lesson-number">23.</span> Try/Except</div>
+<div class="lesson-item"><span class="lesson-number">24.</span> Fayllar</div>
+<div class="lesson-item"><span class="lesson-number">25.</span> Mini loyiha</div>
+
 </div>
 
-<!-- Modal -->
-<div class="modal-overlay" id="modal">
-    <div class="modal">
-        <button class="modal-close" onclick="closeModal()">✕</button>
-        <div class="modal-num" id="modalNum"></div>
-        <div class="modal-title" id="modalTitle"></div>
-        <div class="modal-content" id="modalContent"></div>
-        <div class="code-block" id="modalCode"></div>
-        <a href="https://youtube.com/results?search_query=python+uzbek+tilida" target="_blank" class="modal-btn">
-            ▶ YouTube da ko'rish
-        </a>
-    </div>
 </div>
 
-<script>
-const lessons = [
-    // BOSHLANG'ICH
-    {
-        num: "01", icon: "🐍", level: "beginner",
-        title: "Kirish va Python o'rnatish",
-        desc: "Python nima, qayerda ishlaydi",
-        tag: "Boshlang'ich",
-        info: "Python — eng mashhur dasturlash tillaridan biri. Uni o'rnatish va birinchi dastur yozish juda oson!",
-        code: <span class="cm"># Birinchi dasturingiz</span>\n<span class="fn">print</span>(<span class="st">"Salom, Dunyo!"</span>)\n<span class="fn">print</span>(<span class="st">"Python o'rganishni boshladim!"</span>)
-    },
-    {
-        num: "02", icon: "📦", level: "beginner",
-        title: "O'zgaruvchilar (Variables)",
-        desc: "Ma'lumotlarni saqlash usuli",
-        tag: "Boshlang'ich",
-        info: "O'zgaruvchilar ma'lumotlarni xotirada saqlash uchun ishlatiladi. Python da tur ko'rsatish shart emas.",
-        code: <span class="nm">ism</span> = <span class="st">"Muslimbek"</span>\n<span class="nm">yosh</span> = <span class="op">20</span>\n<span class="nm">vazn</span> = <span class="op">75.5</span>\n<span class="fn">print</span>(ism, yosh, vazn)
-    },
-    {
-        num: "03", icon: "🔢", level: "beginner",
-        title: "Sonlar va Matematik amallar",
-        desc: "int, float va hisob-kitoblar",
-        tag: "Boshlang'ich",
-        info: "Python da barcha matematik amallarni bajarish mumkin: qo'shish, ayirish, ko'paytirish, bo'lish va boshqalar.",
-        code: <span class="nm">a</span> = <span class="op">10</span>\n<span class="nm">b</span> = <span class="op">3</span>\n<span class="fn">print</span>(a + b)   <span class="cm"># 13</span>\n<span class="fn">print</span>(a - b)   <span class="cm"># 7</span>\n<span class="fn">print</span>(a * b)   <span class="cm"># 30</span>\n<span class="fn">print</span>(a / b)   <span class="cm"># 3.33</span>\n<span class="fn">print</span>(a ** b)  <span class="cm"># 1000 (daraja)</span>
-    },
-    {
-        num: "04", icon: "💬", level: "beginner",
-[5/8/2026 9:28 PM] Muslimbek: title: "Stringlar (Matnlar)",
-        desc: "Matn bilan ishlash asoslari",
-        tag: "Boshlang'ich",
-        info: "String — matn turidagi ma'lumot. Python da stringlar bilan ko'p amallarni bajarish mumkin.",
-        code: <span class="nm">ism</span> = <span class="st">"Python"</span>\n<span class="fn">print</span>(ism.<span class="fn">upper</span>())      <span class="cm"># PYTHON</span>\n<span class="fn">print</span>(ism.<span class="fn">lower</span>())      <span class="cm"># python</span>\n<span class="fn">print</span>(<span class="fn">len</span>(ism))          <span class="cm"># 6</span>\n<span class="fn">print</span>(<span class="st">f"Salom {ism}!"</span>)  <span class="cm"># Salom Python!</span>
-    },
-    {
-        num: "05", icon: "⌨️", level: "beginner",
-        title: "Input — foydalanuvchidan ma'lumot olish",
-        desc: "input() funksiyasi",
-        tag: "Boshlang'ich",
-        info: "input() funksiyasi yordamida foydalanuvchidan ma'lumot olish mumkin.",
-        code: <span class="nm">ism</span> = <span class="fn">input</span>(<span class="st">"Ismingiz: "</span>)\n<span class="nm">yosh</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="st">"Yoshingiz: "</span>))\n<span class="fn">print</span>(<span class="st">f"Salom {ism}, siz {yosh} yoshdasiz!"</span>)
-    },
-    {
-        num: "06", icon: "🔀", level: "beginner",
-        title: "Shartlar — if, elif, else",
-        desc: "Qaror qabul qilish",
-        tag: "Boshlang'ich",
-        info: "Shartli operatorlar dasturga turli holatlarda turlicha harakat qilish imkonini beradi.",
-        code: <span class="nm">ball</span> = <span class="op">85</span>\n<span class="kw">if</span> ball >= <span class="op">90</span>:\n    <span class="fn">print</span>(<span class="st">"A'lo"</span>)\n<span class="kw">elif</span> ball >= <span class="op">70</span>:\n    <span class="fn">print</span>(<span class="st">"Yaxshi"</span>)\n<span class="kw">else</span>:\n    <span class="fn">print</span>(<span class="st">"O'rganish kerak"</span>)
-    },
-    {
-        num: "07", icon: "🔁", level: "beginner",
-        title: "For tsikli",
-        desc: "Takrorlash va iteratsiya",
-        tag: "Boshlang'ich",
-        info: "For tsikli ma'lum bir necha marta yoki ro'yxat bo'yicha takrorlash uchun ishlatiladi.",
-        code: <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="op">1</span>, <span class="op">6</span>):\n    <span class="fn">print</span>(<span class="st">f"{i} * 2 = {i*2}"</span>)\n\n<span class="nm">mevalar</span> = [<span class="st">"olma"</span>, <span class="st">"nok"</span>, <span class="st">"uzum"</span>]\n<span class="kw">for</span> meva <span class="kw">in</span> mevalar:\n    <span class="fn">print</span>(meva)
-    },
-    {
-        num: "08", icon: "🔄", level: "beginner",
-        title: "While tsikli",
-        desc: "Shart bajarilgunga qadar takrorlash",
-        tag: "Boshlang'ich",
-        info: "While tsikli shart to'g'ri bo'lguncha ishlaydi. Break va continue bilan boshqarish mumkin.",
-        code: <span class="nm">son</span> = <span class="op">1</span>\n<span class="kw">while</span> son <= <span class="op">5</span>:\n    <span class="fn">print</span>(son)\n    son += <span class="op">1</span>\n\n<span class="cm"># Cheksiz tsikl (Ctrl+C bilan to'xtatish)</span>\n<span class="kw">while</span> <span class="kw">True</span>:\n    javob = <span class="fn">input</span>(<span class="st">"Chiqish uchun 'q': "</span>)\n    <span class="kw">if</span> javob == <span class="st">'q'</span>: <span class="kw">break</span>
-    },
-    {
-        num: "09", icon: "📋", level: "beginner",
-        title: "Listlar (Ro'yxatlar)",
-        desc: "Bir nechta qiymatni saqlash",
-        tag: "Boshlang'ich",
-[5/8/2026 9:28 PM] Muslimbek: info: "List — tartib bo'yicha joylashgan ma'lumotlar to'plami. O'zgartirish, qo'shish, o'chirish mumkin.",
-        code: `<span class="nm">mevalar</span> = [<span class="st">"olma"</span>, <span class="st">"nok"</span>, <span class="st">"uzum"</span>]\nmevalar.<span class="fn">append</span>(<span class="st">"shaftoli"</span>)\n<span class="fn">print</span>(mevalar[<span class="op">0</span>])        <span class="cm">#
+</body>
+</html>
