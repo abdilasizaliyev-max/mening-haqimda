@@ -1,57 +1,84 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python 25 ta dars | Muslimbek</title>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; line-height: 1.6; }
-        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .btn-back { display: inline-block; margin-bottom: 20px; text-decoration: none; color: #6c5ce7; font-weight: bold; border: 2px solid #6c5ce7; padding: 10px 20px; border-radius: 12px; transition: 0.3s; }
-        .btn-back:hover { background: #6c5ce7; color: white; }
-        .lesson-list { display: grid; gap: 10px; margin-top: 20px; }
-        .lesson-item { background: #f9f9ff; padding: 15px 25px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: #333; border: 1px solid #eee; transition: 0.3s; }
-        .lesson-item:hover { transform: translateX(10px); border-color: #6c5ce7; background: #fff; }
-        .lesson-number { font-weight: bold; color: #6c5ce7; margin-right: 15px; }
-        .play-tag { font-size: 12px; background: #e0e0ff; color: #6c5ce7; padding: 4px 10px; border-radius: 8px; font-weight: bold; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python 25 ta dars | Muslimbek</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+}
+iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+.lesson-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+.lesson-number {
+    color: #6c5ce7;
+    font-weight: bold;
+}
+</style>
 </head>
 <body>
 
 <div class="container">
-    <a href="index.html" class="btn-back">← Bosh sahifaga qaytish</a>
-    <h1>Python: 0 dan 25-mavzugacha</h1>
-    <p>Darsni tanlang va video darslikni YouTube'da ko'ring:</p>
+<h1>🐍 Python 25 ta dars (To‘liq kurs)</h1>
 
-    <div class="lesson-list">
-        <script>
-            const pythonDarslar = [
-                "Python Kirish va o'rnatish", "O'zgaruvchilar (Variables)", "Ma'lumot turlari",
-                "Input va Output", "Matematik amallar", "String (Matn) metodlari",
-                "If, Else, Elif shartlari", "List (Ro'yxatlar)", "Tuple va Set",
-                "Dictionary (Lug'at)", "For Loop (Tsikl)", "While Loop",
-                "Funksiyalar asoslari", "Lambda funksiyasi", "Klasslar (OOP)",
-                "Merosxo'rlik (Inheritance)", "Modullar bilan ishlash", "Datetimes (Vaqt)",
-                "Math moduli", "JSON ma'lumotlari", "Regex tushunchasi",
-                "PIP paketlar tizimi", "Try Except (Xatolar bilan ishlash)",
-                "Fayllarni o'qish va yozish", "Yakuniy loyiha: Bot yaratish"
-            ];
+<!-- VIDEO PLAYER -->
+<iframe src="https://www.youtube.com/embed/videoseries?list=PLw0uq1J9p2z9c1pJ7zK0s8AjtKoa6HgMH" allowfullscreen></iframe>
 
-            pythonDarslar.forEach((nomi, i) => {
-                // Har bir dars uchun YouTube o'zbekcha qidiruv linki
-                let qidiruv = nomi.split(' ').join('+');
-                let link = "https://youtube.com+" + qidiruv;
-                
-                document.write(`
-                    <a href="${link}" target="_blank" class="lesson-item">
-                        <span><span class="lesson-number">${(i + 1)}.</span> ${nomi}</span>
-                        <span class="play-tag">KO'RISH ▶</span>
-                    </a>
-                `);
-            });
-        </script>
-    </div>
+<h3>Darslar ro‘yxati:</h3>
+
+<div class="lesson-list">
+
+<div class="lesson-item"><span class="lesson-number">01.</span> Kirish va o‘rnatish</div>
+<div class="lesson-item"><span class="lesson-number">02.</span> O‘zgaruvchilar</div>
+<div class="lesson-item"><span class="lesson-number">03.</span> Ma’lumot turlari</div>
+<div class="lesson-item"><span class="lesson-number">04.</span> String</div>
+<div class="lesson-item"><span class="lesson-number">05.</span> List</div>
+<div class="lesson-item"><span class="lesson-number">06.</span> Input / Output</div>
+<div class="lesson-item"><span class="lesson-number">07.</span> Sonlar</div>
+<div class="lesson-item"><span class="lesson-number">08.</span> If / Else</div>
+<div class="lesson-item"><span class="lesson-number">09.</span> For loop</div>
+<div class="lesson-item"><span class="lesson-number">10.</span> While loop</div>
+
+<div class="lesson-item"><span class="lesson-number">11.</span> Funksiyalar</div>
+<div class="lesson-item"><span class="lesson-number">12.</span> Dictionary</div>
+<div class="lesson-item"><span class="lesson-number">13.</span> Tuple va Set</div>
+<div class="lesson-item"><span class="lesson-number">14.</span> Lambda</div>
+<div class="lesson-item"><span class="lesson-number">15.</span> OOP</div>
+<div class="lesson-item"><span class="lesson-number">16.</span> Inheritance</div>
+<div class="lesson-item"><span class="lesson-number">17.</span> Modullar</div>
+<div class="lesson-item"><span class="lesson-number">18.</span> Datetime</div>
+<div class="lesson-item"><span class="lesson-number">19.</span> Math</div>
+<div class="lesson-item"><span class="lesson-number">20.</span> JSON</div>
+
+<div class="lesson-item"><span class="lesson-number">21.</span> RegEx</div>
+<div class="lesson-item"><span class="lesson-number">22.</span> PIP</div>
+<div class="lesson-item"><span class="lesson-number">23.</span> Try/Except</div>
+<div class="lesson-item"><span class="lesson-number">24.</span> Fayllar</div>
+<div class="lesson-item"><span class="lesson-number">25.</span> Mini loyiha</div>
+
+</div>
+
 </div>
 
 </body>
