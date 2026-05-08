@@ -36,7 +36,7 @@
         }
         #vModal.active { display: flex; }
         .video-box { width: 95%; max-width: 850px; position: relative; }
-        .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 20px; overflow: hidden; border: 3px solid var(--accent); box-shadow: 0 0 30px rgba(0,255,136,0.2); }
+        .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 20px; overflow: hidden; border: 3px solid var(--accent); }
         .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         .close-btn { position: absolute; top: -50px; right: 0; color: var(--accent); cursor: pointer; font-family: 'Space Mono'; font-weight: 800; font-size: 1.3rem; }
     </style>
@@ -61,32 +61,33 @@
 </div>
 
 <script>
+    // Darslar ro'yxati (v: faqat video ID raqamlari)
     const lessons = [
-        { t: "C++ Kirish va IDE o'rnatish", v: "/embed/9C_6o_58K8M" },
-        { t: "O'zgaruvchilar va Ma'lumot turlari", v: "/embed/bL95yD_Y9Uo" },
-        { t: "Kirish va Chiqish (cin/cout)", v: "/embed/m-h6z6_m9tI" },
-        { t: "Arifmetik operatorlar", v: "/embed/8_7LpY5eL0M" },
-        { t: "Shartli operatorlar (If/Else)", v: "/embed/K0T5iZ_Qf0A" },
-        { t: "Switch-case operatori", v: "/embed/mS6mB9C496A" },
-        { t: "For sikli asoslari", v: "/embed/p9WvKx_Lz4M" },
-        { t: "While va Do-while sikllari", v: "/embed/XmZ9I9E_mD0" },
-        { t: "Massivlar (Arrays)", v: "/embed/zXW9I9E_mUo" },
-        { t: "Funksiyalar (Functions)", v: "/embed/9C_6o_58K8M" },
-        { t: "Ko'p o'lchamli massivlar", v: "/embed/bL95yD_Y9Uo" },
-        { t: "Pointerlar (Ko'rsatkichlar)", v: "/embed/m-h6z6_m9tI" },
-        { t: "Dinamik xotira (New/Delete)", v: "/embed/8_7LpY5eL0M" },
-        { t: "Stringlar bilan ishlash", v: "/embed/K0T5iZ_Qf0A" },
-        { t: "Strukturalar (Struct)", v: "/embed/mS6mB9C496A" },
-        { t: "Fayllar bilan ishlash", v: "/embed/p9WvKx_Lz4M" },
-        { t: "OOP: Class va Object", v: "/embed/XmZ9I9E_mD0" },
-        { t: "OOP: Konstruktorlar", v: "/embed/zXW9I9E_mUo" },
-        { t: "OOP: Encapsulation", v: "/embed/9C_6o_58K8M" },
-        { t: "OOP: Inheritance", v: "/embed/bL95yD_Y9Uo" },
-        { t: "OOP: Polymorphism", v: "/embed/m-h6z6_m9tI" },
-        { t: "OOP: Abstraction", v: "/embed/8_7LpY5eL0M" },
-        { t: "STL: Vectorlar", v: "/embed/K0T5iZ_Qf0A" },
-        { t: "STL: Map va Set", v: "/embed/mS6mB9C496A" },
-        { t: "Final Loyiha (Xulosa)", v: "/embed/p9WvKx_Lz4M" }
+        { t: "C++ Kirish va IDE o'rnatish", v: "9C_6o_58K8M" },
+        { t: "O'zgaruvchilar va Ma'lumot turlari", v: "bL95yD_Y9Uo" },
+        { t: "Kirish va Chiqish (cin/cout)", v: "m-h6z6_m9tI" },
+        { t: "Arifmetik operatorlar", v: "8_7LpY5eL0M" },
+        { t: "Shartli operatorlar (If/Else)", v: "K0T5iZ_Qf0A" },
+        { t: "Switch-case operatori", v: "mS6mB9C496A" },
+        { t: "For sikli asoslari", v: "p9WvKx_Lz4M" },
+        { t: "While va Do-while sikllari", v: "XmZ9I9E_mD0" },
+        { t: "Massivlar (Arrays)", v: "zXW9I9E_mUo" },
+        { t: "Funksiyalar (Functions)", v: "9C_6o_58K8M" },
+        { t: "Ko'p o'lchamli massivlar", v: "bL95yD_Y9Uo" },
+        { t: "Pointerlar (Ko'rsatkichlar)", v: "m-h6z6_m9tI" },
+        { t: "Dinamik xotira (New/Delete)", v: "8_7LpY5eL0M" },
+        { t: "Stringlar bilan ishlash", v: "K0T5iZ_Qf0A" },
+        { t: "Strukturalar (Struct)", v: "mS6mB9C496A" },
+        { t: "Fayllar bilan ishlash", v: "p9WvKx_Lz4M" },
+        { t: "OOP: Class va Object", v: "XmZ9I9E_mD0" },
+        { t: "OOP: Konstruktorlar", v: "zXW9I9E_mUo" },
+        { t: "OOP: Encapsulation", v: "9C_6o_58K8M" },
+        { t: "OOP: Inheritance", v: "bL95yD_Y9Uo" },
+        { t: "OOP: Polymorphism", v: "m-h6z6_m9tI" },
+        { t: "OOP: Abstraction", v: "8_7LpY5eL0M" },
+        { t: "STL: Vectorlar", v: "K0T5iZ_Qf0A" },
+        { t: "STL: Map va Set", v: "mS6mB9C496A" },
+        { t: "Final Loyiha (Xulosa)", v: "p9WvKx_Lz4M" }
     ];
 
     const listDiv = document.getElementById('list');
@@ -98,8 +99,8 @@
         item.className = 'lesson-item';
         
         item.onclick = function() {
-            // URL manzili embed bilan birlashtirildi
-            var url = "https://www.youtube.com" + lesson.v + "?autoplay=1";
+            // URL manzili embed va ID bilan to'g'ri birlashtirildi
+            var url = "https://youtube.com" + lesson.v + "?autoplay=1";
             iframe.src = url;
             modal.classList.add('active');
         };
@@ -118,3 +119,4 @@
 </script>
 </body>
 </html>
+
