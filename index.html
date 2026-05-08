@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muslimbek Xalmatov | Portfolio & Darsliklar</title>
+    <title>Muslimbek Xalmatov | Portfolio</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; color: #333; margin: 0; padding: 0; scroll-behavior: smooth; line-height: 1.8; }
@@ -13,29 +13,15 @@
         .nav-links { display: flex; gap: 25px; list-style: none; margin: 0; padding: 0; }
         .nav-links a { text-decoration: none; color: #555; font-weight: 600; transition: 0.3s; font-size: 15px; }
         .nav-links a:hover { color: #6c5ce7; }
-        
+        .section { padding: 80px 0; border-top: 1px solid #eee; }
+        .section-title { font-size: 32px; color: #1a1a1a; margin-bottom: 40px; border-left: 8px solid #6c5ce7; padding-left: 20px; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .contact-card { background: #f9f9ff; padding: 30px; border-radius: 20px; border: 1px solid #eef; text-align: center; }
+        .btn-main { background:#6c5ce7; color:white; padding:12px 25px; border-radius:12px; text-decoration:none; font-weight:bold; display:inline-block; margin-top: 15px; transition: 0.3s; }
         .hero { display: flex; justify-content: space-between; align-items: center; padding: 80px 0; }
         .hero-text { flex: 1.2; }
         h1 { font-size: 50px; color: #4834d4; margin: 10px 0; line-height: 1.1; }
-        .hero-image { width: 350px; height: 400px; border: 5px solid #6c5ce7; border-radius: 25px; object-fit: cover; box-shadow: 15px 15px 0px #e0e0ff; background: #eee; }
-
-        .section { padding: 80px 0; border-top: 1px solid #eee; }
-        .section-title { font-size: 32px; color: #1a1a1a; margin-bottom: 40px; border-left: 8px solid #6c5ce7; padding-left: 20px; }
-        
-        .article-body { text-align: justify; font-size: 17px; color: #444; background: #fff; padding: 35px; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.03); }
-        .article-body h3 { color: #6c5ce7; margin-top: 35px; font-size: 22px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
-        
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .contact-card { background: #f9f9ff; padding: 30px; border-radius: 20px; border: 1px solid #eef; text-align: center; transition: 0.3s; }
-        .contact-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .contact-card h4 { font-size: 18px; margin-bottom: 15px; color: #6c5ce7; }
-        
-        .btn-main { background:#6c5ce7; color:white; padding:12px 25px; border-radius:12px; text-decoration:none; font-weight:bold; display:inline-block; margin-top: 15px; transition: 0.3s; border: none; cursor: pointer; font-size: 14px; }
-        .btn-secondary { background:#f0f0ff; color:#6c5ce7; padding:12px 25px; border-radius:12px; text-decoration:none; font-weight:bold; display:inline-block; margin-top: 15px; transition: 0.3s; margin-right: 10px; font-size: 14px; }
-        .btn-main:hover, .btn-secondary:hover { opacity: 0.8; transform: scale(1.05); }
-
-        footer { background: #1a1a1a; color: #aaa; padding: 40px 0; text-align: center; font-size: 14px; }
-        a { color: inherit; text-decoration: none; }
+        .hero-image { width: 350px; height: 400px; border: 5px solid #6c5ce7; border-radius: 25px; object-fit: cover; }
     </style>
 </head>
 <body>
@@ -46,92 +32,41 @@
         <li><a href="#bosh">Bosh sahifa</a></li>
         <li><a href="#men">Men haqimda</a></li>
         <li><a href="#darsliklar">Darsliklar</a></li>
-        <li><a href="#maqola">C++ Maqola</a></li>
         <li><a href="#aloqa">Aloqa</a></li>
     </ul>
 </nav>
 
 <div class="container">
-    <!-- BOSH SAHIFA -->
     <div id="bosh" class="hero">
         <div class="hero-text">
-            <p style="color:#6c5ce7; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">Shaxsiy Portfolio</p>
             <h1>Muslimbek <br> Xalmatov</h1>
-            <p style="font-size:18px; color:#666; margin: 20px 0;">Qo'qon universiteti talabasi, Shaxmat chempioni va Bo'lajak Muhandis.</p>
-            <a href="https://t.me" class="btn-main">Telegram orqali bog'lanish</a>
+            <p>Qo'qon universiteti talabasi va dasturchi.</p>
         </div>
-        <img src="https://placeholder.com" class="hero-image" alt="Muslimbek Xalmatov">
-    </div>
-
-    <!-- MEN HAQIMDA -->
-    <div id="men" class="section">
-        <h2 class="section-title">Men haqimda</h2>
-        <div class="article-body">
-            <p>Men, <b>Muslimbek Xalmatov Muzaffar o'g'li</b>, 2007-yil 19-fevralda Andijon shahrida tug'ilganman. Hozirda <b>Qo'qon universitetining "Kompyuter injeneringi"</b> yo'nalishi 1-bosqich talabasiman.</p>
-            <p>Mening hayotimda sport va ilm-fan doimo yonma-yon keladi. Shaxmat bo'yicha <b>3 karra viloyat chempioni</b> hisoblanaman. Shaxmat menga mantiqiy fikrlashni, dasturlash esa g'oyalarni hayotga tatbiq etishni o'rgatdi. Hozirda asosiy e'tiborimni C++ va Python tillarini mukammal o'rganishga qaratganman.</p>
-        </div>
+        <img src="https://placeholder.com" class="hero-image">
     </div>
 
     <!-- DARSLIKLAR BO'LIMI -->
     <div id="darsliklar" class="section">
-        <h2 class="section-title">Darsliklar</h2>
+        <h2 class="section-title">O'quv darsliklari</h2>
         <div class="contact-grid">
-            <!-- Python -->
             <div class="contact-card">
                 <h4>Python Darslari</h4>
-                <p>Python tilida dasturlash asoslari va qiziqarli loyihalar to'plami.</p>
-                <a href="#bosh" class="btn-secondary">Bosh sahifa</a>
-                <a href="#" class="btn-main">Kirish</a>
+                <p>Pythonni 0 dan o'rganish (1-25 darslar).</p>
+                <a href="python.html" class="btn-main">Kursga kirish</a>
             </div>
-
-            <!-- C++ -->
             <div class="contact-card">
                 <h4>C++ Darslari</h4>
-                <p>Algoritmlar, ma'lumotlar tuzilmasi va C++ ning murakkab imkoniyatlari.</p>
-                <a href="#bosh" class="btn-secondary">Bosh sahifa</a>
-                <a href="#maqola" class="btn-main">O'qish</a>
-            </div>
-
-            <!-- Hisob -->
-            <div class="contact-card">
-                <h4>Hisob (Kalkulyator)</h4>
-                <p>Matematik amallar uchun mo'ljallangan Python kalkulyator loyihasi.</p>
-                <a href="#bosh" class="btn-secondary">Bosh sahifa</a>
-                <a href="#" class="btn-main">Kodni ko'rish</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- C++ MAQOLA -->
-    <div id="maqola" class="section">
-        <h2 class="section-title">C++ Dasturlash Tili</h2>
-        <div class="article-body">
-            <p>C++ tili 1979-yilda <b>Bjarne Stroustrup</b> tomonidan yaratilgan bo'lib, bugungi kunda dunyodagi eng kuchli tillardan biri hisoblanadi.</p>
-            <h3>Nima uchun C++?</h3>
-            <p>Ushbu til operatsion tizimlar, o'yin dvigatellari (Unreal Engine) va yuqori tezlik talab qilinadigan tizimlarni yaratishda ajralmasdir. Men uchun C++ — bu shunchaki kod emas, balki muhandislik tafakkurini shakllantirish vositasidir.</p>
-        </div>
-    </div>
-
-    <!-- ALOQA -->
-    <div id="aloqa" class="section">
-        <h2 class="section-title">Aloqa Ma'lumotlari</h2>
-        <div class="contact-grid">
-            <div class="contact-card">
-                <h4>✈ Telegram</h4>
-                <p><a href="https://t.me" target="_blank" style="color:#6c5ce7; font-weight:bold;">@Grasmestir007</a></p>
+                <p>C++ dasturlash tili (1-25 darslar).</p>
+                <a href="cpp.html" class="btn-main">Kursga kirish</a>
             </div>
             <div class="contact-card">
-                <h4>📞 Telefon</h4>
-                <p><a href="tel:+998931045343" style="color:#333; font-weight:bold;">+998 93 104 53 43</a></p>
+                <h4>Hisob fani</h4>
+                <p>Matematik hisob va ma'ruzalar.</p>
+                <a href="hisob.html" class="btn-main">Mavzularga kirish</a>
             </div>
         </div>
     </div>
 </div>
-
-<footer>
-    <p>© 2024 Muslimbek Xalmatov | Barcha huquqlar himoyalangan.</p>
-    <p>Andijon shahri | Qo'qon universiteti talabasi</p>
-</footer>
 
 </body>
 </html>
