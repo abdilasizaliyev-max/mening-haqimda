@@ -1,1 +1,57 @@
-h1>Bu C++ sahifasi</h1>
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Kursi | Muslimbek</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .btn-back { display: inline-block; margin-bottom: 20px; text-decoration: none; color: #6c5ce7; font-weight: bold; border: 2px solid #6c5ce7; padding: 10px 20px; border-radius: 12px; transition: 0.3s; }
+        .btn-back:hover { background: #6c5ce7; color: white; }
+        .lesson-list { display: grid; gap: 10px; margin-top: 20px; }
+        .lesson-item { background: #f9f9ff; padding: 15px 25px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: #333; border: 1px solid #eee; transition: 0.3s; }
+        .lesson-item:hover { transform: translateX(10px); border-color: #6c5ce7; background: #fff; }
+        .lesson-number { font-weight: bold; color: #6c5ce7; margin-right: 15px; }
+        .play-tag { font-size: 12px; background: #e0e0ff; color: #6c5ce7; padding: 4px 10px; border-radius: 8px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="btn-back">← Bosh sahifaga qaytish</a>
+    <h1>C++: 0 dan 25-mavzugacha</h1>
+    <p>C++ dasturlash tili bo'yicha darslar. Mavzuni tanlang va YouTube'da ko'ring:</p>
+
+    <div class="lesson-list">
+        <script>
+            const cppDarslar = [
+                "C++ Kirish va Dev-C++ o'rnatish", "Hello World - Birinchi dastur", "O'zgaruvchilar va Ma'lumot turlari",
+                "Cin va Cout (Kiritish-chiqarish)", "Arifmetik amallar", "Mantiqiy operatorlar",
+                "If, Else, Else if shartlari", "Switch Case operatori", "While tsikli", "For tsikli",
+                "Do While tsikli", "Break va Continue", "Massivlar (Arrays) asoslari",
+                "Ko'p o'lchamli massivlar", "String (Matn) bilan ishlash", "Pointerlar (Ko'rsatkichlar)",
+                "Funksiyalar asoslari", "Funksiya parametrlari", "Rekursiya (Recursion)",
+                "Strukturalar (Struct)", "Enum (Sanab o'tiladigan turlar)", "Fayllar bilan ishlash",
+                "OOP: Klass va Obyektlar", "OOP: Merosxo'rlik (Inheritance)", "Loyiha: Kalkulyator yaratish"
+            ];
+
+            cppDarslar.forEach((nomi, i) => {
+                let qidiruv = nomi.split(' ').join('+');
+                let link = "https://youtube.com+" + qidiruv;
+                
+                document.write(`
+                    <a href="${link}" target="_blank" class="lesson-item">
+                        <span><span class="lesson-number">${(i + 1)}.</span> ${nomi}</span>
+                        <span class="play-tag">KO'RISH ▶</span>
+                    </a>
+                `);
+            });
+        </script>
+    </div>
+</div>
+
+</body>
+</html>
+
