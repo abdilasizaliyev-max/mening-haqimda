@@ -8,96 +8,122 @@
     <style>
         :root {
             --bg: #0a0a0f; --surface: #12121a; --card: #1a1a26;
-            --accent: #00ff88; --accent2: #7c3aed; --accent3: #ff6b35;
-            --text: #e8e8f0; --muted: #6b6b80; --border: #2a2a3a;
+            --accent: #00ff88; --accent2: #7c3aed; --text: #e8e8f0; --muted: #6b6b80; --border: #2a2a3a;
         }
-        body { font-family: 'Syne', sans-serif; background: var(--bg); color: var(--text); padding: 40px 20px; }
+        body { font-family: 'Syne', sans-serif; background: var(--bg); color: var(--text); padding: 40px 20px; margin: 0; }
         .container { max-width: 900px; margin: 0 auto; }
         .header { text-align: center; margin-bottom: 40px; }
         h1 { color: var(--accent); text-transform: uppercase; letter-spacing: 2px; }
         
-        .lesson-grid { display: flex; flex-direction: column; gap: 10px; }
+        .lesson-grid { display: flex; flex-direction: column; gap: 12px; }
         .lesson-item {
             display: flex; align-items: center; gap: 15px;
             background: var(--card); border: 1px solid var(--border);
-            padding: 18px; border-radius: 12px; transition: 0.3s;
+            padding: 20px; border-radius: 16px; transition: 0.3s;
+            cursor: pointer;
         }
-        .lesson-item:hover { border-color: var(--accent); transform: translateX(8px); }
-        .lesson-num { font-family: 'Space Mono'; color: var(--accent); font-weight: bold; width: 30px; }
+        .lesson-item:hover { border-color: var(--accent); transform: translateX(10px); background: #1e1e2e; }
+        .lesson-num { font-family: 'Space Mono'; color: var(--accent); font-weight: bold; font-size: 1.2rem; min-width: 40px; }
         .lesson-info { flex: 1; }
-        .lesson-title { font-weight: 600; font-size: 1.05rem; }
-        .links { display: flex; gap: 8px; margin-top: 5px; }
-        .btn-link { 
-            font-size: 10px; text-decoration: none; color: var(--muted); 
-            border: 1px solid var(--border); padding: 2px 6px; border-radius: 4px;
+        .lesson-title { font-weight: 600; font-size: 1.1rem; margin-bottom: 5px; }
+        
+        .links { display: flex; gap: 10px; }
+        .btn-link { font-size: 11px; text-decoration: none; color: var(--muted); border: 1px solid var(--border); padding: 3px 8px; border-radius: 4px; }
+        .play-btn { background: var(--accent); color: black; border: none; padding: 8px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+
+        /* VIDEO MODAL SYSTEM */
+        .video-modal {
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,0.9); backdrop-filter: blur(10px);
+            z-index: 9999; align-items: center; justify-content: center;
         }
-        .btn-link:hover { color: var(--accent); border-color: var(--accent); }
+        .video-modal.active { display: flex; }
+        .video-content { width: 90%; max-width: 850px; position: relative; }
+        .video-frame-wrap { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 15px; overflow: hidden; border: 2px solid var(--accent); }
+        .video-frame-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .close-video { position: absolute; top: -45px; right: 0; color: var(--accent); cursor: pointer; font-family: 'Space Mono'; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="header">
-        <h1>C++ Noldan Professionalgacha</h1>
-        <p style="color: var(--muted)">25 ta asosiy mavzu va foydali manbalar</p>
+        <h1>C++ NOLDAN PROFESSIONALGACHA</h1>
+        <p style="color: var(--muted)">25 ta dars - Har birini bosib videoni ko'ring</p>
     </div>
 
-    <div class="lesson-grid" id="lessonList">
-        <!-- Mavzular JavaScript orqali avtomatik generatsiya qilinadi -->
+    <div class="lesson-grid" id="lessonList"></div>
+</div>
+
+<div class="video-modal" id="vModal">
+    <div class="video-content">
+        <span class="close-video" onclick="closeV()">[ X YOPISH ]</span>
+        <div class="video-frame-wrap">
+            <iframe id="mainFrame" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
     </div>
 </div>
 
 <script>
+    // Mavzular va ularga mos YouTube Video ID lari
     const lessons = [
-        "C++ Kirish va IDE o'rnatish (Visual Studio, Code::Blocks)",
-        "O'zgaruvchilar va Ma'lumot turlari",
-        "Kirish va Chiqish operatorlari (cin, cout)",
-        "Arifmetik operatorlar va Matematik funksiyalar",
-        "Mantiqiy amallar va Taqqoslash",
-        "Shartli operatorlar (if, else)",
-        "Switch-case tanlov operatori",
-        "For sikli va takrorlanishlar",
-        "While va Do-while sikllari",
-        "Nested loops (Ichma-ich sikllar)",
-        "Bir o'lchamli massivlar (Arrays)",
-        "Ko'p o'lchamli massivlar (Matrices)",
-        "String (Satrlar) bilan ishlash",
-        "Funksiyalar: Kirish va turlari",
-        "Funksiyalarga parametr uzatish",
-        "Rekursiv funksiyalar",
-        "Pointerlar (Ko'rsatkichlar) asoslari",
-        "Pointerlar va Massivlar bog'liqligi",
-        "Dinamik xotira bilan ishlash (new, delete)",
-        "Strukturalar (struct)",
-        "Fayllar bilan ishlash (ifstream, ofstream)",
-        "OOP: Class va Object tushunchasi",
-        "OOP: Encapsulation va Constructors",
-        "OOP: Inheritance (Vorislilik)",
-        "STL kutubxonasi: Vector, List, Map"
+        { t: "C++ Kirish va IDE o'rnatish", v: "9C_6o_58K8M" },
+        { t: "O'zgaruvchilar va Ma'lumot turlari", v: "bL95yD_Y9Uo" },
+        { t: "Kirish va Chiqish (cin, cout)", v: "m-h6z6_m9tI" },
+        { t: "Arifmetik operatorlar", v: "8_7LpY5eL0M" },
+        { t: "Shartli operatorlar (if, else)", v: "K0T5iZ_Qf0A" },
+        { t: "Switch-case operatori", v: "mS6mB9C496A" },
+        { t: "For sikli asoslari", v: "p9WvKx_Lz4M" },
+        { t: "While va Do-while", v: "XmZ9I9E_mD0" },
+        { t: "Massivlar (Arrays)", v: "7X1G9I9E_mU" },
+        { t: "Funksiyalar", v: "mS6mB9C496A" },
+        { t: "Ko'p o'lchamli massivlar", v: "m-h6z6_m9tI" },
+        { t: "Pointerlar asoslari", v: "bL95yD_Y9Uo" },
+        { t: "Stringlar bilan ishlash", v: "9C_6o_58K8M" },
+        { t: "Strukturalar (struct)", v: "K0T5iZ_Qf0A" },
+        { t: "Fayllar bilan ishlash", v: "8_7LpY5eL0M" },
+        { t: "OOP: Kirish", v: "p9WvKx_Lz4M" },
+        { t: "OOP: Class va Objects", v: "XmZ9I9E_mD0" },
+        { t: "OOP: Encapsulation", v: "7X1G9I9E_mU" },
+        { t: "OOP: Inheritance", v: "mS6mB9C496A" },
+        { t: "OOP: Polymorphism", v: "m-h6z6_m9tI" },
+        { t: "Abstraksiya", v: "bL95yD_Y9Uo" },
+        { t: "STL: Vector", v: "9C_6o_58K8M" },
+        { t: "STL: Map va Set", v: "K0T5iZ_Qf0A" },
+        { t: "Exception Handling", v: "8_7LpY5eL0M" },
+        { t: "Xulosa va Final Loyiha", v: "p9WvKx_Lz4M" }
     ];
 
-    const listContainer = document.getElementById('lessonList');
-    const resources = `
-        <div class="links">
-            <a href="https://visualstudio.microsoft.com/" class="btn-link">VS</a>
-            <a href="http://www.codeblocks.org/" class="btn-link">Code::Blocks</a>
-            <a href="https://www.jetbrains.com/clion/" class="btn-link">CLion</a>
-        </div>`;
+    const list = document.getElementById('lessonList');
+    const modal = document.getElementById('vModal');
+    const frame = document.getElementById('mainFrame');
 
-    lessons.forEach((title, index) => {
-        const item = document.createElement('div');
-        item.className = 'lesson-item';
-        item.innerHTML = `
-            <div class="lesson-num">${(index + 1).toString().padStart(2, '0')}</div>
+    lessons.forEach((l, i) => {
+        const div = document.createElement('div');
+        div.className = 'lesson-item';
+        div.onclick = () => {
+            frame.src = `https://youtube.com{l.v}?autoplay=1`;
+            modal.classList.add('active');
+        };
+        div.innerHTML = `
+            <div class="lesson-num">${(i + 1).toString().padStart(2, '0')}</div>
             <div class="lesson-info">
-                <div class="lesson-title">${title}</div>
-                ${resources}
+                <div class="lesson-title">${l.t}</div>
+                <div class="links">
+                    <span class="btn-link">Darsni tomosha qilish</span>
+                </div>
             </div>
-            <div style="font-size: 1.2rem; cursor: pointer;">📘</div>
+            <button class="play-btn">PLAY ▶</button>
         `;
-        listContainer.appendChild(item);
+        list.appendChild(div);
     });
+
+    function closeV() {
+        modal.classList.remove('active');
+        frame.src = "";
+    }
 </script>
 
 </body>
 </html>
+
